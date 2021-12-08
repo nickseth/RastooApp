@@ -93,6 +93,18 @@ const routes: Routes = [
     path: 'shipping-address',
     loadChildren: () => import('./shipping-address/shipping-address.module').then( m => m.ShippingAddressPageModule),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'billing-address',
+    loadChildren: () => import('./billing-address/billing-address.module').then( m => m.BillingAddressPageModule)
+  },
+  {
+    path: 'paymentmethod',
+    loadChildren: () => import('./paymentmethod/paymentmethod.module').then( m => m.PaymentmethodPageModule)
+  },
+  {
+    path: 'success-order',
+    loadChildren: () => import('./success-order/success-order.module').then( m => m.SuccessOrderPageModule)
   }
 ];
 

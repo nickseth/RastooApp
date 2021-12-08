@@ -4,18 +4,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CheckoutPageRoutingModule } from './checkout-routing.module';
+import { BillingAddressPageRoutingModule } from './billing-address-routing.module';
 
-import { CheckoutPage } from './checkout.page';
+import { BillingAddressPage } from './billing-address.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CheckoutPageRoutingModule,
-    // ReactiveFormsModule
+    BillingAddressPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [CheckoutPage]
+  declarations: [BillingAddressPage]
 })
-export class CheckoutPageModule {}
+export class BillingAddressPageModule {}

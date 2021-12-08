@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="price-details-class">
+    <ion-label>Order Summary</ion-label>
+    <div class="price-label1">
+      <small>Price(<span>{{pro_length}} item</span>)</small>
+      <small>£{{total_po_price}}</small>
+    </div>
+    <div class="price-label1">
+      <strong>Total Amount</strong>
+      <strong>£{{total_po_price }}</strong>
+    </div>
+  </div>
+
+  <ion-card>
+    <!-- <ion-item>
+      <ion-label>Payment Method</ion-label>
+    </ion-item>
+   -->
+    <ion-card-content>
+      <ion-radio-group value="grape" (ionChange)="radioGroupChange($event)" #radioGroup>
+        <ion-list-header>
+          <ion-label>Payment Method</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Cash on Delivery</ion-label>
+          <ion-radio slot="start" color="primary" value="offline"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Online Payment</ion-label>
+          <ion-radio slot="start" color="primary" value="online"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+\
+
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+<ion-footer>
+  <ion-button size="large" expand="full" (click)="OrderPlaceSuccess(this.line_items)">Continue</ion-button>
+</ion-footer>

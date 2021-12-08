@@ -13,13 +13,28 @@
         <h4>Billing Address</h4>
        <p>{{this.address}}</p> 
       </div>
-      <a href="javascript:void(0)" [routerLink]="['/shipping-address']">Edit</a>
+      <a href="javascript:void(0)" [routerLink]="['/billing-address']">Edit</a>
     </div>
     <ion-item>
       <ion-label>shipping address as a billing address</ion-label>
-      <ion-checkbox slot="start" [(ngModel)]="chechedshipping" ></ion-checkbox>
+      <ion-checkbox slot="start" [(ngModel)]="chechedshipping" (ionChange)="shippingAddressMethod($event)" ></ion-checkbox>
     </ion-item>
     
+
+    <div class="price-details-class">
+      <ion-label>Order Summary</ion-label>
+      <div class="price-label1">
+        <small>Price(<span>{{pro_length}} item</span>)</small>
+        <small>£{{total_po_price}}</small>
+      </div>
+      <div class="price-label1">
+        <strong>Total Amount</strong>
+        <strong>£{{total_po_price }}</strong>
+      </div>
+    </div>
+  </div>
+  <div class="items-class">
+
     <ion-item *ngFor="let item of pro_data;">
 
       <ion-thumbnail slot="start">
@@ -38,18 +53,9 @@
         </div>
       </ion-label>
     </ion-item>
-    <div class="price-details-class">
-      <ion-label>Order Summary</ion-label>
-      <div class="price-label1">
-        <small>Price(<span>{{pro_length}} item</span>)</small>
-        <small>£{{total_po_price}}</small>
-      </div>
-      <div class="price-label1">
-        <strong>Total Amount</strong>
-        <strong>£{{total_po_price }}</strong>
-      </div>
-    </div>
   </div>
+    
+    
  
 </ion-content>
 <ion-footer class="footer">

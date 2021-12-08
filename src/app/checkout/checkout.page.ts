@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { ModalController } from '@ionic/angular';
+import { Router,NavigationExtras} from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { AuthenticationService } from '../api/authentication.service';
 import { CartService } from '../api/cart.service';
-import { OrderService } from '../api/order.service';
 import { ProfileService } from '../api/profile.service';
 // import { ShippingAddressPage } from '../shipping-address/shipping-address.page';
 
@@ -18,13 +18,19 @@ export class CheckoutPage implements OnInit {
   userId: string;
    UserAddress:any;
   address: any;
+  final_shipping_address:any;
   chechedshipping:any = true;
+  loading: HTMLIonLoadingElement;
+  // shipping_addr: any;
+  // billing_addr:any;
   constructor(
 private cartService:CartService,
 // private custom_model:ModalController,
 private userAddress:ProfileService,
 private auth:AuthenticationService,
-private orderService:OrderService
+private router:Router,
+private loadingController:LoadingController
+
   ) { 
     this.getCartData()
     this.auth.getToken().then(val=>{
@@ -35,6 +41,8 @@ private orderService:OrderService
   }
 
   ngOnInit() {
+    
+ 
   }
   getCartData() {
     this.total_po_price = 0;
@@ -51,44 +59,59 @@ private orderService:OrderService
 
     })
   }
-  getUserdetails(userID){
+  async getUserdetails(userID){
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      spinner:'bubbles',
+      animated:true,
+      // backdropDismiss: true,
+      translucent: true,
+    });
+    await this.loading.present();
     this.userAddress.getUserProfile(userID).subscribe(val=>{
           this.UserAddress = val;
           this.address = this.UserAddress.billing.address_1
-
+ this.loading.dismiss();
     });
   }
+  // async presentModal() {
+  //   const modal = await this.custom_model.create({
+  //     component: ShippingAddressPage,
+  //     cssClass: 'my-custom-class',
+  //   });
+  //   await modal.present();
+  //   modal.onDidDismiss().then((data) => {
+  //     // do something with the data ... 
+  //     return
+  //   });
+  // }
 
-OrderPlaceSuccess(){
-//   let data = {
-//     payment_method: "bacs",
-//     payment_method_title: "Direct Bank Transfer",
-//     set_paid: true,
-//     billing: ,
-//     shipping: ,
-//     line_items: [
-//       {
-//         product_id: 93,
-//         quantity: 2
-//       },
-//       {
-//         product_id: 22,
-//         variation_id: 23,
-//         quantity: 1
-//       }
-//     ],
-//     shipping_lines: [
-//       {
-//         method_id: "flat_rate",
-//         method_title: "Flat Rate",
-//         total: "10.00"
-//       }
-//     ]
-//   }
-//  this.orderService.createOrder(data).subscribe(val=>{
+  shippingAddressMethod(e){
+    if(!e.target.checked){
+      this.chechedshipping = e.target.checked;
+      this.router.navigateByUrl("/shipping-address")
+      // this.presentModal();
+    }
+  }
+  OrderPlaceSuccess(){
+    if(this.UserAddress != undefined){
+       if(this.chechedshipping){
+      this.final_shipping_address = this.UserAddress.billing;
+    } else{
+      this.final_shipping_address = this.UserAddress.shipping;
+    }
+    
+    let navigationExtras: NavigationExtras =  {
+      state: {
+        billing_address:this.UserAddress.billing,
+        shipping_address:this.final_shipping_address,
+      }
+    }
+    this.router.navigate(['/paymentmethod'],navigationExtras)
 
-//  })
-
-}
+    }
+   
+  }
+ 
 
 }
