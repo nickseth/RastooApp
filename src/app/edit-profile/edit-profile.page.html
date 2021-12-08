@@ -1,0 +1,48 @@
+<ion-content fullscreen="true">
+  <div class="title-class">
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="large">Update Profile</ion-title>
+    <ion-card class="person-clss">
+      <ion-icon class="userpro" size="large" name="person"></ion-icon>
+      <ion-icon class="userproedit" name="pencil"></ion-icon>
+    </ion-card>
+  </div>
+  <div class="user-email-info">
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" method="post">
+
+      <ion-row class="p-l-4">
+        <ion-col col-12 class="col-static">
+
+          <ion-input class="input-cover" type="text" formControlName="first_name" [value]="first_name"
+            placeholder="first name" required></ion-input>
+          <ion-icon name='person-circle' class="user" item-right></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="p-l-4">
+        <ion-col col-12 class="col-static">
+
+          <ion-input class="input-cover" type="text" formControlName="last_name" [value]="last_name"
+            placeholder="last name" required></ion-input>
+          <ion-icon name='person-circle' class="user" item-right></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="p-l-4">
+        <ion-col col-12 class="col-static">
+
+          <ion-input class="input-cover" type="email" formControlName="email" [value]="userEmail" placeholder="email"
+            required></ion-input>
+          <ion-icon name='mail' class="user" item-right></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="cta">
+          <ion-button color="primary" type="submit" expand="block">Update Profile</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <div>
+    </div>
+  </div>
+</ion-content>

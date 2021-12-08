@@ -1,0 +1,10 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Rastoo",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"proxies": [{
+        "path": "/api",
+        "proxyUrl": "https://rastoo.com/"
+    }]
+}

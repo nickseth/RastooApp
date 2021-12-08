@@ -1,0 +1,63 @@
+ion-toolbar{
+      --background: #2874f0;
+      --color:#fff;
+}
+.btn-content-remove-all{
+      display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+   top: 0;
+   background-color: #fff;
+}
+.emptyCart{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%
+}
+.continue-btn-div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 10px;
+}
+.plus-min-class{
+margin-top: 5px;
+.remove-btn-one{
+      margin-left: 71px;
+}
+}
+.price-details-class{
+      box-shadow: 0px 4px 13px 1px black;
+      margin: 29px 10px 102px 10px;
+      padding: 20px;
+      // padding-left: 20px;
+      // padding-right: 20px;
+      padding: 20px;
+      .price-label1{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10px 2px 1px;
+      }
+     
+}
+// .place-btn-class{
+     
+// }
+.footer{
+      position: -webkit-sticky;
+       position: sticky;
+       position: fixed;
+      bottom: 0;
+      background:#fff; 
+      display: flex;
+      justify-content: space-between;
+      /* padding-left: 20px; */
+      /* padding-right: 20px; */
+      margin-top: 20px;
+      // border: 1px solid black;
+      padding: 20px;
+      box-shadow: 2px 3px 9px 2px #adadad;
+    }

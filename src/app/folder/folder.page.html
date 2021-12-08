@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   <div>
+    <ion-buttons class="upper-header">
+      <div class="header-left">
+        <ion-menu-button></ion-menu-button>
+        <ion-title><img src="../../assets/rstoo-logo-1.png"
+          style="max-width: 80px;" /></ion-title>
+      </div>
+      
+     <div class="header-right">
+      <ion-icon class="notify-icon" name="notifications"></ion-icon>
+      <div>
+        <ion-icon class="crt-cart" name="cart" [routerLink]="['/tabs/cart']"></ion-icon>
+        <ion-badge color="danger" *ngIf="badgeValue != 0">{{badgeValue}}</ion-badge>
+      </div>
+      
+     </div>
+   
+    </ion-buttons>
+  </div>
+    <div class="lower-header">
+      <ion-searchbar  [routerLink]="['/tabs/search']"></ion-searchbar>
+    </div>
+   
+    <!-- <ion-title size="large">{{ folder }}</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="getProductList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="top-slider"> 
+    <div class="tablinks" (click)="openCategories()"> 
+      <ion-avatar>
+          <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="" class="cat_img">
+     
+    </ion-avatar>
+   <small>All Categories</small> 
+  </div>
+    <div *ngFor="let item22 of categories;" class="tablinks"(click)="openCategoryOnes(item22.id)">
+        <ion-avatar>
+            <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="" class="cat_img">
+      </ion-avatar>
+      <small>{{item22.name}}</small>
+    </div>
+  </div>
+
+
+  <div class="rootoff-slider">
+    <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+      <ion-slide>
+        <img src="../../assets/img/rastoo1.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/img/rastoo2.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/img/rastoo3.jpg">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-grid >
+    <ion-row >
+    <ion-col *ngFor="let pro_item of allProductsData;" size="6">
+       
+    <ion-card (click)="openProducts(pro_item.id)">
+    <div class= "product_img" *ngIf="pro_item.images[0] !=null">
+      <img width="80" height="80" src={{pro_item.images[0].src}}/>
+    </div> 
+      <ion-card-content>
+        <p class="pro_name">{{pro_item.name}}</p>
+        <strong><small [innerHTML]="pro_item.price_html"></small></strong>
+      </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Search Product</ion-title> -->
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="loading; else skeleton">
+    <!-- <ion-list-header>
+      Products
+    </ion-list-header> -->
+    <div *ngFor="let pro_item of allProductsData | filter:filterTerm">
+      <ion-item (click)="openProducts(pro_item.id)">
+        <div class="product_img" *ngIf="pro_item.images[0] !=null">
+        <ion-avatar slot="start">
+            <img width="80" height="80" src={{pro_item.images[0].src}} />
+        
+        </ion-avatar>
+      </div>
+        <ion-label>
+          <h2>{{pro_item.name}}</h2>
+          <!-- <h3>New Ride</h3> -->
+          <strong><small [innerHTML]="pro_item.price_html"></small></strong>
+        </ion-label>
+      </ion-item>
+     
+    </div>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ng-template #skeleton>
+    <div *ngFor="let item of [1, 2, 3, 4, 5]">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        
+      </ion-list>
+     
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,15 @@
+.product_img{
+    flex: auto;
+    text-align: center;
+    
+  }
+  .pro_name{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .top-slider {
+    display: flex;
+    overflow-x: scroll;
+    // background-color: #05151b;
+  }

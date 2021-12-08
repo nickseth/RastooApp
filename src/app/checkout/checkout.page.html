@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <div class="billing-address-class">
+      <div>
+        <h4>Billing Address</h4>
+       <p>{{this.address}}</p> 
+      </div>
+      <a href="javascript:void(0)" [routerLink]="['/shipping-address']">Edit</a>
+    </div>
+    <ion-item>
+      <ion-label>shipping address as a billing address</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="chechedshipping" ></ion-checkbox>
+    </ion-item>
+    
+    <ion-item *ngFor="let item of pro_data;">
+
+      <ion-thumbnail slot="start">
+        <img src={{item.img_url}}>
+      </ion-thumbnail>
+
+      <ion-label>
+        <p>{{item.product_name}}</p>
+        <span>£{{item.total_price}}</span>
+        <div>
+
+          <div class="plus-min-class">
+            <strong><small>Qty: </small></strong>
+            {{item.quantity}}
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <div class="price-details-class">
+      <ion-label>Order Summary</ion-label>
+      <div class="price-label1">
+        <small>Price(<span>{{pro_length}} item</span>)</small>
+        <small>£{{total_po_price}}</small>
+      </div>
+      <div class="price-label1">
+        <strong>Total Amount</strong>
+        <strong>£{{total_po_price }}</strong>
+      </div>
+    </div>
+  </div>
+ 
+</ion-content>
+<ion-footer class="footer">
+      
+  
+  <!-- <div class="place-btn-class"> -->
+  <div><strong>£{{total_po_price}}</strong></div>
+  <div>
+    <ion-button color="danger" (click)="OrderPlaceSuccess()">Continue</ion-button>
+  </div>
+  <!-- </div> -->
+</ion-footer>

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <div class = "header-main">
+<div>
+  <ion-title>{{pro_name}}
+  </ion-title> 
+</div>
+<div style="font-size:20px">
+  <ion-icon name="search"></ion-icon>
+</div>
+    </div>
+  
+
+
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+  <div slot="end" style="padding-right: 20px;font-size:30px;position: relative;" [routerLink]="['/tabs/cart']">
+    <ion-icon name="cart"></ion-icon>
+    <ion-badge color="danger" *ngIf="badgeValue != 0">{{badgeValue}}</ion-badge>
+  </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="pro_all_det">
+    <div class="product_img">
+      <img src={{this.image_url}} />
+    </div>
+    <strong class="pro_desc" [innerHTML]="price_html"></strong>
+    <div class="pro_desc" [innerHTML]="pro_descrip"></div>
+    <div class="slecter_class" *ngIf="this.pro_type == 'variable'">
+      <span>{{quantity_name}}: </span>
+      <select [(ngModel)]="mySelect" (change)="getPrice(mySelect)">
+        <!-- <option value="null" [selected]="true">Select</option> -->
+        <option *ngFor="let attr_pro of product_pri_attr" value={{attr_pro.varient_id}}>{{attr_pro.options}}</option>
+      </select>
+    </div>
+    <div class="main-price">
+      <strong *ngIf="this.price_selected != null" class="woocommerce-Price-currencySymbol">£{{this.price_selected}}</strong>
+     </div>
+    </div>
+
+   
+    
+     
+     <!-- <div class="quntity-class">
+      <span>Quantity:</span>
+      <span class="plus-min-class">
+        <ion-icon name="remove-circle-outline" (click)="addQuntity('min')"></ion-icon>
+        <input type="number" [value]="quantites" style="width: 40px; margin-left:10px;margin-right:10px" readonly>
+        <ion-icon name="add-circle-outline" (click)="addQuntity('plus')"></ion-icon>
+      </span>
+     
+     </div> -->
+    <div class="btn_cart">
+      <div class="btn-cart">
+        <ion-button expand="full" class="add_to_cart_btn" color="success" style="color:black" (click)="addProToCart()">Add To Cart</ion-button>
+      </div>
+     
+     <div class="btn-buy">
+      <ion-button expand="full" class="buy_now_btn" color="primary">Buy Now</ion-button>
+     </div>
+     
+    </div>
+  </div>
+</ion-content>

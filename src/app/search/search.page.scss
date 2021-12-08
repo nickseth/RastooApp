@@ -1,0 +1,24 @@
+ion-toolbar{
+  height: 84px;
+    --background: #2874f0;
+    ion-searchbar{
+      margin-top: 18px;
+    }
+}
+// .product_img{
+//     flex: auto;
+//     text-align: center;
+    
+//   }
+ion-label{
+  margin-left: 16px;
+}
+  .pro_name{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

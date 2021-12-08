@@ -1,0 +1,21 @@
+
+<ion-content fullscreen="true">
+      <div class="title-class">
+        <ion-buttons slot="start" class="back-btn">
+          <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title size="large">{{first_name}} {{last_name}}</ion-title>
+  <ion-card class="person-clss"><ion-icon size="large" name="person"></ion-icon></ion-card>
+</div>
+<div class="user-email-info">
+  <div>
+    <ion-label>{{first_name}} {{last_name}}</ion-label>
+    <br>
+    <small>{{userEmail}}</small>
+  </div>
+  <div>
+    <ion-icon name="create-outline" [routerLink]="['/edit-profile']"></ion-icon>
+  </div>
+ 
+</div>
+</ion-content>

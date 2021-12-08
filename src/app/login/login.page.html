@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-title">Log In</ion-title>
+  </ion-toolbar>
+   
+  </ion-header>
+<ion-content>
+    <div class="img-wrap"></div>
+    <form (ngSubmit)="login()" [formGroup]="credentials">
+      <div class="user-icon">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </div>
+      <p>
+        <label for="fname">Email</label><br>
+        <input type="text" id="fname" name="username" placeholder="xyz@gmail.com" formControlName="username">
+      </p>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">Email is required</span>
+        <span *ngIf="email.errors?.email">Email is invalid</span>
+      </div>
+      <p>
+        <label for="fname">Password</label><br>
+        <input type="password" name="password" placeholder="xxxxxx" formControlName="password">
+      </p>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+      </div>
+      <ion-row>
+        <ion-col>
+          <div class="cta">
+            <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Sign In</ion-button>
+          </div>
+
+          <div class="acc-create-wrap">
+            <div>
+              <a [routerLink]="['/register']" class="small-text">Create Account</a>
+            </div>
+            <div>
+              <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  
+</ion-content>

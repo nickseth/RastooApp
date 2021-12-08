@@ -1,0 +1,97 @@
+ion-menu-button {
+  color: #fff;
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+.product_img{
+  flex: auto;
+  text-align: center;
+  
+}
+.pro_name{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.top-slider {
+  display: flex;
+  overflow-x: scroll;
+  padding:10px;
+  background-color: #d5d6d8;
+}
+.upper-header{
+  display: flex;
+  justify-content: space-between;
+  background: #2874f0;
+  padding-top: 10px;
+  color:#fff;
+}
+.header-right{
+  display: flex;
+  font-size: 25px;
+  margin-right: 10px;
+  // justify-content: space-between;
+}
+.header-left{
+  display: flex;
+}
+
+
+.lower-header{
+  background: #2874f0;
+  padding-bottom: 10px;
+  ion-searchbar{
+    line-height:10px
+  }
+}
+.tablinks{
+  text-align: center;
+  // min-width: 80px;
+  .cat_img{
+    height: 60px;
+    width:60px
+  }
+}
+.top-slider{
+margin:-7px;
+.tablinks{margin:0 7px}
+
+}
+.notify-icon{
+margin-right: 30px;
+}
+.rootoff-slider{
+  padding:10px;
+  background-color: #d5d6d8;
+}
+ion-badge{
+  position: absolute;
+  right: 2px;
+}
+.crt-cart{
+  position: relative;
+}
+

@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" method="post">
+    <div class="form-wrap">
+      <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="" class="cat_img">
+    </div>
+
+    <p>
+      <label for="first_name">First name</label><br>
+      <input type="text" formControlName="first_name">
+    </p>
+    <p>
+      <label for="last_name">Last name</label><br>
+      <input type="text" formControlName="last_name">
+    </p>
+    <p>
+      <label for="email">Email</label><br>
+      <input type="email" formControlName="email">
+    </p>
+    <p>
+      <label for="username">User Name</label><br>
+      <input type="text" formControlName="username">
+    </p>
+    <p>
+      <label for="password">Password</label><br>
+      <input type="password" formControlName="password">
+    </p>
+    <p>
+      <label for="conpassword">Confirm Password</label><br>
+      <input type="password" formControlName="conpassword">
+    </p>
+    <ion-row>
+      <ion-col class="cta">
+        <ion-button type="submit"  expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

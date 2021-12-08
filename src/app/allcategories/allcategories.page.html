@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>All Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row >
+    <ion-col *ngFor="let item of categories;" size="6">
+       
+    <ion-card (click)="openCategory(item.id)">
+  
+      <ion-card-content>
+        <div class= "product_img">
+          <ion-avatar>
+            <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
+      </ion-avatar>
+        </div> 
+        <p class="pro_name">{{item.name}}</p>
+        <!-- <strong><small [innerHTML]="pro_item.price_html"></small></strong> -->
+      </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

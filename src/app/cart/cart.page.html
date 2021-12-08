@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="getUsersList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="pro_data else itememptyCart">
+    <ion-header class="btn-content-remove-all">
+      <div>
+        <ion-label>Items in Cart</ion-label>
+      </div>
+      <div><a href="javascript:void(0)" (click)="clearCrtAll()">Remove All</a></div>
+    </ion-header>
+
+    <ion-item *ngFor="let item of pro_data;">
+
+      <ion-thumbnail slot="start">
+        <img src={{item.img_url}}>
+      </ion-thumbnail>
+
+      <ion-label>
+        <p>{{item.product_name}}</p>
+        <span>£{{item.total_price}}</span>
+        <div>
+
+          <div class="plus-min-class">
+            <strong><small>Qty: </small></strong>
+            <ion-icon name="remove-circle-outline" (click)="addQuantity('min',item.product_id)"></ion-icon>
+            <input type="number" value={{item.quantity}} style="width: 40px; margin-left:10px;margin-right:10px"
+              readonly>
+            <ion-icon name="add-circle-outline" (click)="addQuantity('plus',item.product_id)"></ion-icon>
+            <a class="remove-btn-one" href="javascript:void(0)" (click)="removeOneItem(item.product_id)">Remove</a>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <div class="continue-btn-div">
+      <ion-button fill="outline" [routerLink]="['/tabs/home']">Continue To Shopping</ion-button>
+    </div>
+    <div class="price-details-class">
+      <ion-label>PRICE DETAILS</ion-label>
+      <div class="price-label1">
+        <small>Price(<span>{{pro_length}} item</span>)</small>
+        <small>£{{total_po_price}}</small>
+      </div>
+      <div class="price-label1">
+        <strong>Total Amount</strong>
+        <strong>£{{total_po_price }}</strong>
+      </div>
+    </div>
+
+    <ion-footer class="footer">
+      <!-- <div class="place-btn-class"> -->
+      <div><strong>£{{total_po_price}}</strong></div>
+      <div>
+        <ion-button  color="success" [routerLink]="['/checkout']">Checkout</ion-button>
+      </div>
+      <!-- </div> -->
+    </ion-footer>
+  </div>
+  <ng-template #itememptyCart>
+    <div class="emptyCart">
+      <p class="centre_class"> No Products in the Cart</p>
+    </div>
+  </ng-template>
+</ion-content>

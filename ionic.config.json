@@ -1,0 +1,7 @@
+{
+  "name": "Rastoo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
