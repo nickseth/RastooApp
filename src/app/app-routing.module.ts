@@ -105,6 +105,10 @@ const routes: Routes = [
   {
     path: 'success-order',
     loadChildren: () => import('./success-order/success-order.module').then( m => m.SuccessOrderPageModule)
+  },
+  {
+    path: 'oredr-view',
+    loadChildren: () => import('./oredr-view/oredr-view.module').then( m => m.OredrViewPageModule)
   }
 ];
 

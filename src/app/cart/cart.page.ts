@@ -76,7 +76,9 @@ export class CartPage implements OnInit {
     // console.log(data,id)
     if (data == 'plus') {
       this.cartService.getCartStorage().then(val => {
-        let objIndex = val.findIndex((obj => obj.id == id));
+       
+        let objIndex = val.findIndex((obj => obj.product_id == id));
+      
         val[objIndex].quantity = val[objIndex].quantity + 1;
         val[objIndex].total_price = (val[objIndex].price * val[objIndex].quantity).toFixed(2);
         if (this.cartService.addToCart(val)) {
@@ -88,7 +90,7 @@ export class CartPage implements OnInit {
     }
     if (data == 'min') {
       this.cartService.getCartStorage().then(val => {
-        let objIndex = val.findIndex((obj => obj.id == id));
+        let objIndex = val.findIndex((obj => obj.product_id == id));
         if (val[objIndex].quantity! > 1) {
           val[objIndex].quantity = val[objIndex].quantity - 1;
           val[objIndex].total_price = (val[objIndex].price * val[objIndex].quantity).toFixed(2);

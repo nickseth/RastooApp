@@ -1,12 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>successOrder</ion-title>
+    <ion-title>Success Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="continue-btn-div">
-    <p>Order Placed Successfully</p>
+    <p>Thank You Order Successfully Placed</p>
+  <div>Your Order Id is: {{this.OrderDetails.id}}</div>
     <ion-button fill="outline" [routerLink]="['/tabs/home']">Continue To Shopping</ion-button>
   </div>
 </ion-content>

@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class ProductdetailPage implements OnInit {
   product_id: any;
-  variation_id:any;
+  variation_id: any;
   product_res: any;
   image_url: any;
   pro_descrip: any
@@ -108,21 +108,21 @@ export class ProductdetailPage implements OnInit {
   async getPrice(var_id) {
     if (var_id != 'null') {
       this.variation_id = var_id;
-     await this.getDataWithVarient(this.product_id, var_id);
+      await this.getDataWithVarient(this.product_id, var_id);
     } else {
       this.price_selected = null;
     }
   }
- 
+
 
   async addProToCart() {
     if (this.pro_type == "simple") {
-      let data_pro_simple = {product_id: this.product_id, img_url: this.image_url, price: this.price,total_price:this.price, product_name: this.pro_name, quantity: 1 };
+      let data_pro_simple = { product_id: this.product_id, img_url: this.image_url, price: this.price, total_price: this.price, product_name: this.pro_name, quantity: 1 };
       this.finalAddToCart(data_pro_simple);
     }
     if (this.pro_type == "variable") {
       if (this.price_selected != null) {
-        let data_pro_variable = {product_id: this.product_id,variation_id:this.variation_id,img_url: this.image_url, price: this.price_selected,total_price:this.price_selected, product_name: this.pro_name, quantity: 1 }
+        let data_pro_variable = { product_id: this.product_id, variation_id: this.variation_id, img_url: this.image_url, price: this.price_selected, total_price: this.price_selected, product_name: this.pro_name, quantity: 1 }
         this.finalAddToCart(data_pro_variable);
       } else {
         const toast = await this.toastController.create({

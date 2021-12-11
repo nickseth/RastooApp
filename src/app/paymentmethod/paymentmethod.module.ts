@@ -14,6 +14,7 @@ import { PaymentmethodPage } from './paymentmethod.page';
     FormsModule,
     IonicModule,
     PaymentmethodPageRoutingModule
+  
   ],
   declarations: [PaymentmethodPage]
 })

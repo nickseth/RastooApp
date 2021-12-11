@@ -22,4 +22,10 @@ export class ProfileService {
    updateProfile(id,data){
    return this.http.put(`${this.baseUrl}wp-json/wc/v3/customers/${id}`,JSON.stringify(data),this.httpOptions);
    }
+ getCountries(){
+  return this.http.get(`${this.baseUrl}wp-json/wc/v3/data/countries`,this.httpOptions);
+ }
+ getStates(id){
+  return this.http.get(`${this.baseUrl}wp-json/wc/v3/data/countries/${id}`,this.httpOptions);
+ }
 }

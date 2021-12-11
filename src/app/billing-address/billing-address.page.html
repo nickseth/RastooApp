@@ -29,14 +29,26 @@
          <ion-input placeholder="Email" type="email" [value]="shipp_email?shipp_email:''" formControlName="email"
            required></ion-input>
        </ion-item>
-       <ion-item class="newitem2">
+       <!-- <ion-item class="newitem2">
          <ion-input placeholder="Country" type="text" [value]="shipp_country?shipp_country:''" formControlName="country"
            required></ion-input>
-       </ion-item>
+       </ion-item> -->
        <ion-item class="newitem2">
+        <ion-select placeholder="Select Country"  
+          required  formControlName="country" (ionChange)="compareWith($event)">
+          <ion-select-option  *ngFor="let key of all_countries" value="{{key.code}}">{{key.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="newitem2">
+        <ion-select placeholder="Select State"  
+          required  formControlName="state">
+          <ion-select-option *ngFor="let key of all_States" value="{{key.code}}">{{key.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+       <!-- <ion-item class="newitem2">
          <ion-input placeholder="State" type="text" [value]="shipp_state?shipp_state:''" formControlName="state"
            required></ion-input>
-       </ion-item>
+       </ion-item> -->
        <ion-item class="newitem2">
          <ion-input placeholder="city" type="text" [value]="shipp_city?shipp_city:''" formControlName="city"
            required></ion-input>
@@ -50,22 +62,18 @@
          <textarea placeholder="Address" [value]="shipp_address" formControlName="address_1"
            required></textarea>
        </ion-item>
+
+    
+     
+
        <div>
          <ion-button type="submit" class="newbtn11" color="primary" block>Submit</ion-button>
        </div>
      </ion-list>
    </form>
  
-     <!-- <ion-item class="newitem2">
-         <ion-input placeholder="Country" type="text" value="India" disabled></ion-input>
-       </ion-item>
-       <ion-item class="newitem2">
-         <ion-select placeholder="Select State" [value]="userData.shipp_state" formControlName="shipp_state"
-           required (ionChange)="onChange(userData.shipp_state)">
-           <ion-option *ngFor="let pstate of this.statesdetails" >{{pstate.state_name}}</ion-option>
-         </ion-select>
-       </ion-item>
-       <ion-item class="newitem2">
+   
+       <!-- <ion-item class="newitem2">
          <ion-select placeholder="Select City" [value]="userData.shipp_city" formControlName="shipp_city" required>
            <ion-option *ngFor="let pcity of this.citiesdetails" value="{{pcity.city_id}}">{{pcity.city_name}}</ion-option>
          </ion-select>

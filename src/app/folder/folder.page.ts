@@ -68,7 +68,7 @@ async getAllProduct(){
  let data = await this.products.getProductAll();
 data.subscribe(val =>{
 this.allProductsData = val;
-// console.log(val)
+console.log(val)
 this.allProductsData.forEach(element => {
   // console.log(element)
   this.loading.dismiss();
@@ -89,7 +89,7 @@ openCategoryOnes(id){
 
  getProductList(event){
          this.getAllProduct();
-        this.cartProductData();
+         this.cartProductData();
   if (event) {
     return event.target.complete();
   }

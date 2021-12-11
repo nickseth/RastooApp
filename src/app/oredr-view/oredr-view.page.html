@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-btn">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order Summery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  <ion-item *ngFor="let item of this.itemImages" (click)="openProducts(item.id)">
+    <ion-thumbnail slot="start">
+        <img width="80" height="80" src={{item.src}} />
+    </ion-thumbnail>
+    <ion-label>
+      {{item.name}}
+    </ion-label>
+  </ion-item>
+  </ion-list>
+   
+    <ion-list>
+      <ion-item>
+
+  <div>
+  
+    <h3>Order Date</h3>
+    <p>{{this.OrderDetails.date_created | date: "yyyy/MM/dd HH:mm:ss"}}</p>
+  </div>
+ 
+
+      
+          <div>
+            <h4> Order #</h4>
+            <p>{{this.OrderDetails.id}}</p>
+           
+          </div><br>
+          <div>
+            <h4> Order total</h4>
+            <p>{{this.OrderDetails.total}}</p>
+           
+          </div><br>
+          <div>
+            <h4> Order status</h4>
+            <p>{{this.OrderDetails.status}}</p>
+          </div>
+       
+      </ion-item>
+      </ion-list>
+</ion-content>

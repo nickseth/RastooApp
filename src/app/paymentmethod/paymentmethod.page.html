@@ -44,8 +44,40 @@
 
     </ion-card-content>
   </ion-card>
-  
+  <div>
+    <ion-list [style.display]="displayModel">
+
+      <ion-item>
+        <ion-label color="primary" stacked>Card Number</ion-label>
+        <ion-input type="text" placeholder="Enter your 16 digit card number" 
+        [(ngModel)]="cardNumber"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" stacked>Expiration Month</ion-label>
+        <ion-input type="number" placeholder="Enter your card expiration month"
+        [(ngModel)]="cardMonth"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" stacked>Expiration Year</ion-label>
+        <ion-input type="number" placeholder="Enter your card expiration year"
+        [(ngModel)]="cardYear"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" stacked>CVV</ion-label>
+        <ion-input type="number" placeholder="Enter your CVV"
+        [(ngModel)]="cardCVV"></ion-input>
+      </ion-item>
+      <ion-button expand="block" size="large" color="success" (click)="payStripePayment()">£{{payed_btn }}</ion-button>
+    </ion-list>
+    
+    
+     
+    
+  </div>
 </ion-content>
 <ion-footer>
-  <ion-button size="large" expand="full" (click)="OrderPlaceSuccess(this.line_items)">Continue</ion-button>
+  <ion-button size="large" expand="full" [disabled] = "btn_pad_color" (click)="OrderPlaceSuccess(this.line_items)">Continue</ion-button>
 </ion-footer>

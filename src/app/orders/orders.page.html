@@ -8,5 +8,19 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <!-- <ion-list-header>
+      Products
+    </ion-list-header> -->
+    <div >
+      <ion-item  *ngFor="let pro_item of orders_product_data" (click)="openOrderDetails(pro_item)">
+        <ion-label>
+          <h2>Order Id: {{pro_item.id}}</h2>
+        </ion-label>
+        <small>{{pro_item.date_created | date: "yyyy/MM/dd HH:mm:ss"}}</small>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+     
+    </div>
+  </ion-list>
 </ion-content>

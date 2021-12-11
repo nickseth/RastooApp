@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AuthenticationService } from '../api/authentication.service';
 import { CartService } from '../api/cart.service';
 import { OrderService } from '../api/order.service';
-
+import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
 @Component({
   selector: 'app-paymentmethod',
   templateUrl: './paymentmethod.page.html',
@@ -20,22 +20,24 @@ export class PaymentmethodPage implements OnInit {
   line_items:any;
   userToken: string;
   order_local: any;
+  displayModel:any = 'none';
+  payed_btn:any;
+  btn_pad_color:any = true;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private cartService:CartService,
     private orderService:OrderService,
     private authToken:AuthenticationService,
-    
+    private stripe: Stripe
   ) { 
 
-  
+    this.stripe.setPublishableKey('pk_test_51K51rFSIIqLP1uOsv712JHcY2oDs4YsdJeRSUuTvOdpmJQLgivTJovYTdl9zG4HExMGMjcV045W9yUfVVoX3ifyv00Pylkt7Ao');
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.billing_address = this.router.getCurrentNavigation().extras.state.billing_address;
         this.shipping_address = this.router.getCurrentNavigation().extras.state.shipping_address;
-        console.log( this.billing_address)
-        console.log(this.shipping_address)
+   
       }
     });
     this.getCartData();
@@ -55,7 +57,7 @@ export class PaymentmethodPage implements OnInit {
         this.pro_length = this.pro_data.length;
         this.pro_data.forEach(element => {
           this.total_po_price = (parseFloat(this.total_po_price) + parseFloat(element.total_price)).toFixed(2);
-
+          this.payed_btn = this.total_po_price; 
         });
       }
 
@@ -83,6 +85,15 @@ export class PaymentmethodPage implements OnInit {
 
   radioGroupChange(e){
  this.payment_method = e.target.value;
+ if(this.payment_method == "online"){
+   this.displayModel = 'block';
+  this.btn_pad_color = true;
+  // this.payment_method();
+  // this.payStripePayment();
+ } else{
+  this.displayModel = 'none';
+  this.btn_pad_color = false;
+ }
  this.authToken.getToken().then(val => {
   this.userToken = val.value;
 
@@ -90,7 +101,7 @@ export class PaymentmethodPage implements OnInit {
   }
 
  async OrderPlaceSuccess(line_items){
-  
+  this.btn_pad_color = false;
   this.order_local =  await this.orderService.getToOrderLoc();
 if(this.payment_method != null){
   // console.log(this.userToken)
@@ -111,11 +122,45 @@ this.orderService.createOrder(data).subscribe(val=>{
   this.order_local.push({id:val['id']})
   if(this.orderService.addToOrderLoc(this.order_local)){
     this.cartService.clearCartStorage();
-   this.router.navigateByUrl("/success-order");
+
+    let navigationExtras: NavigationExtras =  {
+      state: {
+        Order_Success_place:val,
+       
+      }
+    }
+    this.router.navigate(['/success-order'],navigationExtras)
+  //  this.router.navigateByUrl("/success-order");
   }
 
 })
 }
   }
+payStripePayment(){
+  this.btn_pad_color = false;
+  // this.payed_btn = "Pad";
+  this.displayModel = 'none';
+  let card = {
+    number: '4242424242424242',
+    expMonth: 12,
+    expYear: 2024,
+    cvc: '220'
+   }
+  
+   this.stripe.createCardToken(card)
+   .then(token => console.log(token))
+   .catch(error => console.error(error));
+}
+
+
+// payNow(){
+//   this.stripe.({
+//     amount: 100,
+//     currency: "USD",
+//     source: "tok_1K54zaSIIqLP1uOsuOy2KpTn",
+//     description: 'My First Test Charge (created for API docs)',
+//       })
+// }
+  
 
 }

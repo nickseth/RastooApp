@@ -34,7 +34,7 @@ private loadingController:LoadingController
   ) { 
     this.getCartData()
     this.auth.getToken().then(val=>{
-      this.userId = val['value'];
+      this.userId = val;
       this.getUserdetails(this.userId);
     });
    

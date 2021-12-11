@@ -25,6 +25,8 @@ export class ShippingAddressPage implements OnInit {
   userToken: any;
   ionicForm: FormGroup;
   loading: any;
+  all_States: any;
+  all_countries: Object;
   constructor(
     // private custom_model: ModalController,
     private userProfile: ProfileService,
@@ -48,7 +50,7 @@ export class ShippingAddressPage implements OnInit {
   }
   authToken() {
     this.auth.getToken().then(val => {
-      this.userToken = val['value'];
+      this.userToken = val;
       this.getAddressData(this.userToken); 
     })
   }
@@ -85,6 +87,12 @@ export class ShippingAddressPage implements OnInit {
       this.loading.dismiss();
 
     })
+
+
+    this.userProfile.getCountries().subscribe(val=>{
+      this.all_countries = val;
+     //  console.log(this.all_countries)
+     })
   }
   ngOnInit() {
 
@@ -116,5 +124,13 @@ export class ShippingAddressPage implements OnInit {
   //     'dismissed': true
   //   });
   // }
+  compareWith(e) {
+    console.log(e.target.value)
+    this.userProfile.getStates(e.target.value).subscribe(val=>{
+     this.all_States = val['states'];
+     console.log(this.all_States)
+   
+    })
+   }
 
 }

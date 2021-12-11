@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { LoadingController, ModalController } from '@ionic/angular';
+import { LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { AuthenticationService } from '../api/authentication.service';
 import { ProfileService } from '../api/profile.service';
 
@@ -24,12 +24,15 @@ export class BillingAddressPage implements OnInit {
     userToken:any;
     ionicForm: FormGroup;
     loading: any;
+    all_countries:any;
+    all_States:any;
   constructor(
     private custom_model:ModalController,
     private userProfile:ProfileService,
     private auth:AuthenticationService,
     private formBuilder: FormBuilder,
-    public loadingController:LoadingController
+    public loadingController:LoadingController,
+    public toastController:ToastController
 
   ) { 
     this.authToken();
@@ -45,12 +48,12 @@ export class BillingAddressPage implements OnInit {
       state: [''],
       postcode:['']
    })
-
+  
 
   }
   authToken(){
     this.auth.getToken().then(val=>{
-     this.userToken = val['value'];
+     this.userToken = val;
       this.getAddressData(this.userToken); 
     })
   }
@@ -87,25 +90,48 @@ async getAddressData(id){
     this.loading.dismiss();
  
   })
+
+  this.userProfile.getCountries().subscribe(val=>{
+    this.all_countries = val;
+   //  console.log(this.all_countries)
+   })
 }
   ngOnInit() {
 
   }
-  getShippingDetails(){
+  async getShippingDetails(){
 
     let data = {
       billing: this.ionicForm.value,
       
     }
     
-    this.userProfile.updateProfile(this.userToken,data).subscribe(val => {
-      console.log(val)
+    await this.userProfile.updateProfile(this.userToken,data).subscribe(async val => {
+      const toast = await this.toastController.create({
+        message: 'Billing Address Saved Successfully',
+        position: 'middle',
+        duration: 2000
+      });
+      toast.present();
+ 
+    //   console.log(val)
       // if (val['status'] == 'success') {
       //   this.presentToast(val['errormsg']);
       // }
     })
     // console.log(this.ionicForm.value)
   }
+
+  compareWith(e) {
+   console.log(e.target.value)
+   this.userProfile.getStates(e.target.value).subscribe(val=>{
+    this.all_States = val['states'];
+    // console.log(this.all_States)
+  
+   })
+  }
+
+  
  
   dismiss() {
     // using the injected ModalController this page
