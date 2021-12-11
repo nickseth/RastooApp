@@ -22,28 +22,32 @@
     <ion-list>
       <ion-item>
 
-  <div>
   
-    <h3>Order Date</h3>
-    <p>{{this.OrderDetails.date_created | date: "yyyy/MM/dd HH:mm:ss"}}</p>
-  </div>
  
 
-      
-          <div>
-            <h4> Order #</h4>
-            <p>{{this.OrderDetails.id}}</p>
-           
-          </div><br>
-          <div>
-            <h4> Order total</h4>
-            <p>{{this.OrderDetails.total}}</p>
-           
-          </div><br>
-          <div>
-            <h4> Order status</h4>
-            <p>{{this.OrderDetails.status}}</p>
-          </div>
+      <div>
+        <div class="item-disp-class">
+          <h6>Order Date</h6>
+          <p>{{this.OrderDetails.date_created | date: "yyyy/MM/dd"}}</p>
+        </div>
+
+        <div class="item-disp-class">
+          <h6> Order #</h6>
+          <p>{{this.OrderDetails.id}}</p>
+         
+        </div>
+        <div class="item-disp-class">
+          <h6> Order total</h6>
+          <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>
+         
+        </div>
+        <div class="item-disp-class">
+          <h6> Order status</h6>
+          <p>{{this.OrderDetails.status}}</p>
+        </div>
+
+      </div>
+         
        
       </ion-item>
       </ion-list>
