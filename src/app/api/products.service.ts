@@ -28,8 +28,8 @@ export class ProductsService {
     return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
   }
 
-  getCategoryOnes(id){
-    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?category=${id}&consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+  getCategoryOnes(id,data){
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?category=${id}&${data}&consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
   }
   getOneProductWithVarient(id,var_id){
     return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}/variations/${var_id}?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);

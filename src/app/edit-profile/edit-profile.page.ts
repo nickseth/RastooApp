@@ -27,7 +27,7 @@ export class EditProfilePage implements OnInit {
     private toastCtrl: ToastController
   ) {
     this.auth.getToken().then(val => {
-      this.userToken = val.value;
+      this.userToken = val;
       this.getProfileData();
     });
     this.ionicForm = this.formBuilder.group({
@@ -73,18 +73,25 @@ export class EditProfilePage implements OnInit {
       this.loading.dismiss();
     })
   }
-  submitForm() {
+  async submitForm() {
+
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      translucent: true,
+      spinner:'bubbles',
+      animated:true,
+    });
+    await this.loading.present();
     let data = {
       first_name: this.ionicForm.value.first_name,
       last_name: this.ionicForm.value.last_name,
       email: this.ionicForm.value.email
     }
     
-    this.profile.updateProfile(this.userToken,data).subscribe(val => {
-      
-      if (val['status'] == 'success') {
-        this.presentToast(val['errormsg']);
-      }
+    this.profile.updateProfile(this.userToken,data).subscribe(async val => {
+      await this.loading.dismiss();
+      console.log(val)
+      this.presentToast('Profile Successfully update');
     })
   }
 

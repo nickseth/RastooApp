@@ -3,7 +3,7 @@
     <ion-buttons slot="start" class="back-btn">
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Order Summery</ion-title>
+    <ion-title>Order Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,34 +21,70 @@
    
     <ion-list>
       <ion-item>
-
-  
- 
-
       <div>
         <div class="item-disp-class">
-          <h6>Order Date</h6>
+          <h6>Order Date:  </h6>
           <p>{{this.OrderDetails.date_created | date: "yyyy/MM/dd"}}</p>
         </div>
-
         <div class="item-disp-class">
-          <h6> Order #</h6>
+          <h6> Order id:  </h6>
           <p>{{this.OrderDetails.id}}</p>
          
         </div>
         <div class="item-disp-class">
-          <h6> Order total</h6>
-          <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>
-         
+          <h6> Order total:  </h6>
+          <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>     
         </div>
         <div class="item-disp-class">
-          <h6> Order status</h6>
+          <h6> Order status:  </h6>
           <p>{{this.OrderDetails.status}}</p>
         </div>
-
-      </div>
-         
-       
+      </div> 
       </ion-item>
+    </ion-list>
+      <ion-list>
+      <ion-item>
+        <div>
+       <h4>Shipping Address</h4>
+  
+            <p>{{this.OrderDetails.shipping.country}}</p>
+           
+    
+            <p>{{this.OrderDetails.shipping.state}}</p>     
+     
+            <p>{{this.OrderDetails.shipping.city}}</p>
+      
+            <p>{{this.OrderDetails.shipping.postcode}}</p>
+     
+            <p>{{this.OrderDetails.shipping.address_1}}</p>
+       
+        </div> 
+        </ion-item>
       </ion-list>
+      <ion-list>
+        <ion-item>
+          <div>
+         <h4>Billing Address</h4>
+
+              <p>{{this.OrderDetails.billing.country}}</p>
+             
+            
+              <p>{{this.OrderDetails.billing.state}}</p>     
+           
+              <p>{{this.OrderDetails.billing.city}}</p>
+       
+              <p>{{this.OrderDetails.billing.postcode}}</p>
+         
+              <p>{{this.OrderDetails.billing.address_1}}</p>
+        
+          </div> 
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+          <ion-label>Amount</ion-label>
+          <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>
+          </ion-item>
+      </ion-list>
+      <ion-button expand="full"  color="danger">Cancel</ion-button>
 </ion-content>

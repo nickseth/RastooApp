@@ -18,7 +18,7 @@ export class ForgotPasswordPage implements OnInit {
   ) { 
 
     this.ionicForm_reset = this.formBuilder.group({
-      user_login: [''],
+      email: [''],
     
    })
   }
@@ -38,7 +38,7 @@ export class ForgotPasswordPage implements OnInit {
    }
 
 
-   await this.http.post(`https://94d.2a4.myftpupload.com/wp-json/mobileapi/v1/retrieve_password`, JSON.stringify(this.ionicForm_reset.value),options)
+   await this.http.post(`https://rastoo.com/wp-json/custom/v1/forget_password`, JSON.stringify(this.ionicForm_reset.value),options)
     .subscribe(data => {
       this.ionicForm_reset.reset();
     this.router.navigate(['/login']); 

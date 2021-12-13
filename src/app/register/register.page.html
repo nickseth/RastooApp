@@ -37,6 +37,7 @@
       <label for="conpassword">Confirm Password</label><br>
       <input type="password" formControlName="conpassword">
     </p>
+    <span class="err-no-match" [style.display]="nomachpass">No match password and con. password</span>
     <ion-row>
       <ion-col class="cta">
         <ion-button type="submit"  expand="block">Sign Up</ion-button>

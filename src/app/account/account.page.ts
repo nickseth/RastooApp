@@ -22,7 +22,7 @@ private loadingController:LoadingController
 
   ) {
 this.auth.getToken().then(val=>{
-  this.userToken = val.value;
+  this.userToken = val;
   this.getProfileData();
 })
 

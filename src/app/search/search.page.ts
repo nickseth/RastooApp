@@ -33,7 +33,9 @@ private loadingController:LoadingController
     
     let data = await this.products.getProductAll();
    data.subscribe(val =>{
+
    this.allProductsData = val;
+   console.log(this.allProductsData.length)
    this.allProductsData.forEach(element => {
      this.loading=true;
     //  console.log(element)

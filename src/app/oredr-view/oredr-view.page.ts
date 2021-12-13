@@ -9,37 +9,35 @@ import { ProductsService } from '../api/products.service';
 })
 export class OredrViewPage implements OnInit {
   OrderDetails: any;
- itemImages:any;
-  constructor(public route:ActivatedRoute,private router: Router,private productService:ProductsService,) { 
+  itemImages: any;
+  constructor(public route: ActivatedRoute, private router: Router, private productService: ProductsService,) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.OrderDetails = this.router.getCurrentNavigation().extras.state.order_Details;
         this.itemImages = [];
         console.log(this.OrderDetails)
-  this.OrderDetails.line_items.forEach(element => {
-    
-    this.productService.getOneProduct(element.product_id).subscribe( async data=>{
-        
-      this.itemImages.push({src:data['images'][0].src,id:element.id,name:element.name});
-    
-     
-     })
-  });
+        this.OrderDetails.line_items.forEach(element => {
+
+          this.productService.getOneProduct(element.product_id).subscribe(async data => {
+
+            this.itemImages.push({ src: data['images'][0].src, id: element.product_id, name: element.name });
+
+
+          })
+        });
       }
     });
 
   }
 
   ngOnInit() {
-    
-    
+
+
   }
 
-  getUrlImage(id){
- 
-         
-          
-        
+  openProducts(id){
+   
+    this.router.navigate(['productdetail', { id: id}]); 
   }
 
 }

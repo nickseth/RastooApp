@@ -27,10 +27,10 @@
      
     </div>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll> -->
   <ng-template #skeleton>
     <div *ngFor="let item of [1, 2, 3, 4, 5]">
       <ion-list lines="none">
