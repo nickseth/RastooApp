@@ -12,7 +12,7 @@ import { ProductsService } from '../api/products.service';
 })
 export class OrdersPage implements OnInit {
   userToken: any;
-   orders_product_data:any;
+   orders_product_data:any = null;
   loading: any;
   constructor(
 private orderService:OrderService,
@@ -32,6 +32,7 @@ public router:Router
   
   }
   async getOrderData(id){
+    this.orders_product_data = [];
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       spinner:'bubbles',
@@ -40,14 +41,17 @@ public router:Router
       translucent: true,
     });
     await this.loading.present();
-    this.orders_product_data = [];
+    
     // await this.orderService.getToOrderLoc().then(item=>{
     //  if(item != null){
     //   item.forEach(element => {
       
-        this.orderService.retrieveOrder(id).subscribe(async val=>{
-          console.log(val)
-          this.orders_product_data = val;
+        this.orderService.retrieveOrder(id).subscribe(async (val:any)=>{
+          if(val.length >=0){
+            
+            this.orders_product_data = val;
+          }
+         
           // this.orders_product_data.push(val);
           await this.loading.dismiss();
           // val['line_items'].forEach(element1 => {
