@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
   credentials: FormGroup;
+  loading: HTMLIonLoadingElement;
 
   constructor(
     private fb: FormBuilder,
@@ -35,16 +36,22 @@ export class LoginPage implements OnInit {
     //   console.log(val['ID'])
     // })
     // console.log(this.credentials.value)
-    const loading = await this.loadingController.create();
-    await loading.present();
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      spinner: 'bubbles',
+      animated: true,
+      backdropDismiss: true,
+      translucent: true,
+    });
+    await this.loading.present();
 
     this.authService.login(this.credentials.value).subscribe(
       async (res) => {
-        await loading.dismiss();
+        await this.loading.dismiss();
         this.router.navigateByUrl('/tabs', { replaceUrl: true });
       },
       async (res) => {
-        await loading.dismiss();
+        await this.loading.dismiss();
         const alert = await this.alertController.create({
           cssClass:'error_mess',
           header: 'Login failed',
