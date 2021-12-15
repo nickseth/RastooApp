@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -22,7 +22,8 @@ export class LoginPage implements OnInit {
     private loadingController: LoadingController,
     private http:HttpClient
   ) { }
-
+ 
+ 
   ngOnInit() {
     this.credentials = this.fb.group({
       // Validators.email, [Validators.required]

@@ -8,14 +8,18 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-refresher slot="fixed" (ionRefresh)="getProductList($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-list *ngIf="orders_product_data && orders_product_data.length else itememptyOrder">
     <div>
       <ion-item *ngFor="let pro_item of orders_product_data" (click)="openOrderDetails(pro_item)">
         <ion-label>
           <h2>Order Id: {{pro_item.id}}</h2>
+          <small>{{pro_item.status}}</small>
         </ion-label>
-        <small>{{pro_item.date_created | date: "yyyy/MM/dd HH:mm:ss"}}</small>
+      
+        <small>{{pro_item.date_created | date: "yyyy/MM/dd"}}</small>
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-item>
 

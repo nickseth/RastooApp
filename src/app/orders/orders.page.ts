@@ -22,14 +22,14 @@ export class OrdersPage implements OnInit {
     public router: Router
   ) {
 
+  
+  }
+
+  ngOnInit() {
     this.authToken.getToken().then(val => {
       this.userToken = val;
       this.getOrderData(this.userToken);
     });
-  }
-
-  ngOnInit() {
-
   }
   async getOrderData(id) {
     this.orders_product_data = [];
@@ -42,10 +42,7 @@ export class OrdersPage implements OnInit {
     });
     await this.loading.present();
 
-    // await this.orderService.getToOrderLoc().then(item=>{
-    //  if(item != null){
-    //   item.forEach(element => {
-
+    
     this.orderService.retrieveOrder(id).subscribe(async (val: any) => {
       console.log(val.length)
       if (val.length > 0) {
@@ -68,6 +65,7 @@ export class OrdersPage implements OnInit {
       //  }
 
     })
+    return true;
 
   }
 
@@ -79,6 +77,13 @@ export class OrdersPage implements OnInit {
       }
     }
     this.router.navigate(['/oredr-view'], navigationExtras)
+  }
+
+  getProductList(event) {
+  
+    if (this.getOrderData(this.userToken)) {
+      return event.target.complete();
+    }
   }
 
 }
