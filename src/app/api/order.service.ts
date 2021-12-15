@@ -31,7 +31,7 @@ export class OrderService {
         "Authorization":"Basic Y2tfNzIxYWViNjI5MmNjYmU4MjIzNTZiYWIwYmVlMGRlMDI2YTc4NzNkNDpjc180YWU0MzljMWM4NGQ0MDJmMDJkMzcxNmFiMDZhNGVjOTBhZDRiNTZl"
        })}
       // ?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}
-      return this.http.get(`${this.baseUrl}wp-json/wc/v3/orders/${id}`,httpOptions2);
+      return this.http.get(`${this.baseUrl}wp-json/wc/v3/orders?customer=${id}`,httpOptions2);
       }
 
       addToOrderLoc(data){

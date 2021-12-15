@@ -4,10 +4,7 @@
     justify-content: center;
     padding-top: 20px;
 }
-.pro_desc{
-    padding: 20px;
-  
-}
+
 .btn_cart{
 
     position: fixed;
@@ -23,7 +20,22 @@
     }
 }
 .slecter_class{
-    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    span {
+        padding-right: 10px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    }
+    ion-select {
+        padding: 6px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 15%);
+    border: 1px solid #ddd;
+    width: 100%;
+    }
 }
 .quntity-class{
     padding-left:20px;
@@ -40,9 +52,12 @@ ion-toolbar{
 }
 .header-main{
     display: flex;
+    align-items: center;
 }
 ion-title{
-width:200px;   
+    font-size: 14px;
+    width: 200px;
+    padding: 0 10px; 
 }
 .main-price{
     margin-left: 20px;
@@ -59,6 +74,30 @@ ion-badge{
     padding-left: 56px;
 }
 
+.pro_desc { 
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px 30px;
+    letter-spacing: 0.5px;
+    margin-top: 0 ;
+}
 
-
-
+::ng-deep .pro_desc p {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin: 10px;
+    letter-spacing: 1px;
+}
+.main-price {
+    margin-left: 20px;
+    margin-top: 15px;
+    strong {
+        display: block;
+        text-align: center;
+        label {
+            padding-right: 15px;
+        }
+    }
+}

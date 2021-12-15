@@ -21,15 +21,15 @@ private productService:ProductsService,
 public loadingController:LoadingController,
 public router:Router
   ) {
-   
-
+ 
+    this.authToken.getToken().then(val => {
+      this.userToken = val;
+      this.getOrderData(this.userToken);
+    });
    }
 
   ngOnInit() {
-    this.authToken.getToken().then(val => {
-      this.userToken = val.value;
-      this.getOrderData(this.userToken);
-    });
+  
   }
   async getOrderData(id){
     this.loading = await this.loadingController.create({
@@ -41,13 +41,14 @@ public router:Router
     });
     await this.loading.present();
     this.orders_product_data = [];
-    await this.orderService.getToOrderLoc().then(item=>{
-     if(item != null){
-      item.forEach(element => {
+    // await this.orderService.getToOrderLoc().then(item=>{
+    //  if(item != null){
+    //   item.forEach(element => {
       
-        this.orderService.retrieveOrder(element.id).subscribe(async val=>{
-          // console.log(val)
-          this.orders_product_data.push(val);
+        this.orderService.retrieveOrder(id).subscribe(async val=>{
+          console.log(val)
+          this.orders_product_data = val;
+          // this.orders_product_data.push(val);
           await this.loading.dismiss();
           // val['line_items'].forEach(element1 => {
           //   // console.log()
@@ -57,9 +58,9 @@ public router:Router
           //   await this.loading.dismiss();
           //  })
           // });
-        })
-         });
-     }
+        // })
+    //      });
+    //  }
   
     })
   

@@ -22,3 +22,13 @@ ion-label{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+ion-list {
+  margin: 10px;
+  ion-item {
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
+    margin: 10px;
+  }
+  item-native {
+    padding-left: 0;
+  }
+}

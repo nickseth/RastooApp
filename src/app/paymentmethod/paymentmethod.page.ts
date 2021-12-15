@@ -116,22 +116,30 @@ if(this.payment_method != null){
   }
 this.orderService.createOrder(data).subscribe(val=>{
   console.log(val)
-  if(this.order_local == null){
-    this.order_local = []
-  }
-  this.order_local.push({id:val['id']})
-  if(this.orderService.addToOrderLoc(this.order_local)){
-    this.cartService.clearCartStorage();
-
-    let navigationExtras: NavigationExtras =  {
-      state: {
-        Order_Success_place:val,
-       
+  this.cartService.clearCartStorage();
+  let navigationExtras: NavigationExtras =  {
+        state: {
+          Order_Success_place:val,
+         
+        }
       }
-    }
-    this.router.navigate(['/success-order'],navigationExtras)
-  //  this.router.navigateByUrl("/success-order");
-  }
+  this.router.navigate(['/success-order'],navigationExtras)
+  // if(this.order_local == null){
+  //   this.order_local = []
+  // }
+  // this.order_local.push({id:val['id']})
+  // if(this.orderService.addToOrderLoc(this.order_local)){
+  //   this.cartService.clearCartStorage();
+
+  //   let navigationExtras: NavigationExtras =  {
+  //     state: {
+  //       Order_Success_place:val,
+       
+  //     }
+  //   }
+  //   this.router.navigate(['/success-order'],navigationExtras)
+  // //  this.router.navigateByUrl("/success-order");
+  // }
 
 })
 }

@@ -12,3 +12,6 @@ ion-content{
     display: flex;
     // justify-content: space-evenly;
 }
+::ng-deep item-inner {
+    border-bottom: none;
+}

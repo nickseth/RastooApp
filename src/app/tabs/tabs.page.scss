@@ -23,7 +23,7 @@ ion-tab-bar, ion-tab-button{
   // }
   
   ion-menu.md ion-list {
-    padding: 20px 0;
+    padding: 0;
   }
   
   ion-menu.md ion-note {
@@ -64,6 +64,7 @@ ion-tab-bar, ion-tab-button{
     --padding-start: 10px;
     --padding-end: 10px;
     border-radius: 4px;
+    border-bottom: 1px solid #ddd;
   }
   
   ion-menu.md ion-item.selected {
@@ -146,3 +147,4 @@ ion-tab-bar, ion-tab-button{
     // }
    
   // }
+

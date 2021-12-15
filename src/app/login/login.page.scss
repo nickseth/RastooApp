@@ -30,10 +30,13 @@ input {
     margin: 10px 0;
 }
 label {
-    font-size: 16px;
     font-weight: 600;
     letter-spacing: 3px;
-    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #705a5a;
+
 }
 ion-title.md.title-default.hydrated {
     // color: #fff;
@@ -59,4 +62,26 @@ ion-title.md.title-default.hydrated {
     ion-back-button{
         color:#fff;
     }
+}
+form {
+   
+}
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    background-color: #fff !important;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 15%);
+}
+.logo-img {
+    width: 100px;
+    margin: 0 auto;
+}
+form a {
+    text-decoration: none;
+    color: #705a5a;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
 }

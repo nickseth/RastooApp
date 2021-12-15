@@ -57,14 +57,18 @@
       <!-- <div class="place-btn-class"> -->
       <div><strong>£{{total_po_price}}</strong></div>
       <div>
-        <ion-button  color="success" [routerLink]="['/checkout']">Checkout</ion-button>
+        <ion-button color="success" [routerLink]="['/checkout']">Checkout</ion-button>
       </div>
       <!-- </div> -->
     </ion-footer>
   </div>
   <ng-template #itememptyCart>
     <div class="emptyCart">
-      <p class="centre_class"> No Products in the Cart</p>
+      <div class="cart">
+        <ion-icon name="cart"></ion-icon>
+      </div>
+      <h2>Your cart is empty</h2>
+      <ion-button  [routerLink]="['/tabs/home']" fill="outline">Continue Shopping</ion-button>
     </div>
   </ng-template>
 </ion-content>
