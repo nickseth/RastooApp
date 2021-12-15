@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { ProductsService } from '../api/products.service';
@@ -11,7 +11,7 @@ import { CartService } from '../api/cart.service';
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
 })
-export class FolderPage implements OnInit {
+export class FolderPage  {
 
   public folder: string;
   allProductsData: any;
@@ -30,7 +30,10 @@ export class FolderPage implements OnInit {
     private loadingController: LoadingController,
     private cartStorage: CartService
   ) {
-
+    activatedRoute.params.subscribe(val => {
+      this.cartProductData();
+      this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    });
     this.getAllProduct();
 
     // this.storage.create();
@@ -38,11 +41,6 @@ export class FolderPage implements OnInit {
   }
   ionViewWillEnter(){
     console.log("hello")
-  }
-
-  ngOnInit() {
-    this.cartProductData();
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
 

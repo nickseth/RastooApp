@@ -40,10 +40,19 @@
       <small>All Categories</small>
     </div>
     <div *ngFor="let item22 of categories;" class="tablinks" (click)="openCategoryOnes(item22.id)">
-      <ion-avatar>
-        <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt=""
+      <ion-avatar *ngIf="item22.image != null else dummyImg" >
+        <img src={{item22.image.src}} alt=""
           class="cat_img">
       </ion-avatar>
+      <ng-template #dummyImg>
+          <ion-avatar>
+            <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
+            <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
+          </ion-avatar>
+        
+      </ng-template>
+
+
       <small>{{item22.name}}</small>
     </div>
   </div>

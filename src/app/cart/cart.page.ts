@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../api/cart.service';
 import { ProductsService } from '../api/products.service';
 
@@ -13,13 +14,17 @@ export class CartPage implements OnInit {
   total_po_price: any = 0;
   constructor(
     private product_data: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    public activatedRoute:ActivatedRoute
   ) {
+    activatedRoute.params.subscribe(val => {
+      this.getCartData();
+    });
 
   }
 
   ngOnInit() {
-    this.getCartData();
+    
   }
 
   getCartData() {
