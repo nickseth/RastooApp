@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="orders_product_data else itememptyOrder">
     <!-- <ion-list-header>
       Products
     </ion-list-header> -->
@@ -23,4 +23,11 @@
      
     </div>
   </ion-list>
+  <ng-template #itememptyOrder>
+    <div class="emptyOrder">
+     
+      <h2>Your Order History is empty</h2>
+      <ion-button  [routerLink]="['/tabs/home']" fill="outline">Continue Shopping</ion-button>
+    </div>
+  </ng-template>
 </ion-content>
