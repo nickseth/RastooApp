@@ -12,72 +12,78 @@ import { ProductsService } from '../api/products.service';
 })
 export class OrdersPage implements OnInit {
   userToken: any;
-   orders_product_data:any = null;
+  orders_product_data: any = null;
   loading: any;
   constructor(
-private orderService:OrderService,
-private authToken:AuthenticationService,
-private productService:ProductsService,
-public loadingController:LoadingController,
-public router:Router
+    private orderService: OrderService,
+    private authToken: AuthenticationService,
+    private productService: ProductsService,
+    public loadingController: LoadingController,
+    public router: Router
   ) {
- 
+
+  
+  }
+
+  ngOnInit() {
     this.authToken.getToken().then(val => {
       this.userToken = val;
       this.getOrderData(this.userToken);
     });
-   }
-
-  ngOnInit() {
-  
   }
-  async getOrderData(id){
+  async getOrderData(id) {
     this.orders_product_data = [];
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      spinner:'bubbles',
-      animated:true,
+      spinner: 'bubbles',
+      animated: true,
       backdropDismiss: true,
       translucent: true,
     });
     await this.loading.present();
+
     
-    // await this.orderService.getToOrderLoc().then(item=>{
-    //  if(item != null){
-    //   item.forEach(element => {
-      
-        this.orderService.retrieveOrder(id).subscribe(async (val:any)=>{
-          if(val.length >=0){
-            
-            this.orders_product_data = val;
-          }
-         
-          // this.orders_product_data.push(val);
-          await this.loading.dismiss();
-          // val['line_items'].forEach(element1 => {
-          //   // console.log()
-          //  this.productService.getOneProduct(parseInt(element1.product_id)).subscribe( async data=>{
-          //   this.orders_product_data.push(data);
-          //   // console.log(data);
-          //   await this.loading.dismiss();
-          //  })
-          // });
-        // })
-    //      });
-    //  }
-  
+    this.orderService.retrieveOrder(id).subscribe(async (val: any) => {
+      console.log(val.length)
+      if (val.length > 0) {
+
+        this.orders_product_data = val;
+      }
+
+      // this.orders_product_data.push(val);
+      await this.loading.dismiss();
+      // val['line_items'].forEach(element1 => {
+      //   // console.log()
+      //  this.productService.getOneProduct(parseInt(element1.product_id)).subscribe( async data=>{
+      //   this.orders_product_data.push(data);
+      //   // console.log(data);
+      //   await this.loading.dismiss();
+      //  })
+      // });
+      // })
+      //      });
+      //  }
+
     })
-  
+    return true;
+
   }
 
-  openOrderDetails(data){
-    let navigationExtras: NavigationExtras =  {
+  openOrderDetails(data) {
+    let navigationExtras: NavigationExtras = {
       state: {
-        order_Details:data,
-        
+        order_Details: data,
+
       }
     }
-    this.router.navigate(['/oredr-view'],navigationExtras)
+    this.router.navigate(['/oredr-view'], navigationExtras)
+  }
+
+  getProductList(event) {
+  
+    if (this.getOrderData(this.userToken)) {
+      return event.target.complete();
+    }
   }
 
 }

@@ -86,5 +86,6 @@
           <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>
           </ion-item>
       </ion-list>
-      <ion-button expand="full"  color="danger">Cancel</ion-button>
-</ion-content>
+      <ion-button *ngIf="this.OrderDetails.status !='cancelled'" expand="full"  color="danger" (click)="cancelOrder(this.OrderDetails.id)">Cancel</ion-button>
+      <div class="cancelled_clss" *ngIf="this.OrderDetails.status =='cancelled'"><p>Cancelled</p></div>
+    </ion-content>

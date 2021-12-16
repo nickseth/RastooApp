@@ -102,7 +102,7 @@ export class PaymentmethodPage implements OnInit {
 
  async OrderPlaceSuccess(line_items){
   this.btn_pad_color = false;
-  this.order_local =  await this.orderService.getToOrderLoc();
+  // this.order_local =  await this.orderService.getToOrderLoc();
 if(this.payment_method != null){
   // console.log(this.userToken)
   let data = {
