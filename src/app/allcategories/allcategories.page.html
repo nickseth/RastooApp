@@ -15,11 +15,20 @@
     <ion-card (click)="openCategory(item.id)">
   
       <ion-card-content>
-        <div class= "product_img">
+        <div class= "product_img" *ngIf="item.image != null else dummyImg ">
           <ion-avatar>
-            <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
+            <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
+            <img src={{item.image.src}} alt="">
       </ion-avatar>
         </div> 
+        <ng-template #dummyImg>
+          <div class= "product_img">
+            <ion-avatar>
+              <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
+              <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
+            </ion-avatar>
+          </div>
+        </ng-template>
         <p class="pro_name">{{item.name}}</p>
         <!-- <strong><small [innerHTML]="pro_item.price_html"></small></strong> -->
       </ion-card-content>
