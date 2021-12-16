@@ -34,8 +34,5 @@ export class ProductsService {
   getOneProductWithVarient(id,var_id){
     return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}/variations/${var_id}?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
   }
-
- 
- 
-
 }
+
