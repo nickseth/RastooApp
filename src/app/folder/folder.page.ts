@@ -35,14 +35,8 @@ export class FolderPage  {
       this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     });
     this.getAllProduct();
-
     // this.storage.create();
-
   }
-  ionViewWillEnter(){
-    console.log("hello")
-  }
-
 
   cartProductData() {
     this.cartStorage.getCartStorage().then(data => {
@@ -55,12 +49,9 @@ export class FolderPage  {
       }
     })
   }
-
-
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();
   }
-
   async getAllProduct() {
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -84,7 +75,6 @@ export class FolderPage  {
 
     })
   }
-
   openProducts(id) {
     this.route.navigate(['productdetail', { id: id }]);
   }
@@ -102,5 +92,4 @@ export class FolderPage  {
       return event.target.complete();
     }
   }
-
 }
