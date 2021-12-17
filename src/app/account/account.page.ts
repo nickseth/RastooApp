@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AuthenticationService } from '../api/authentication.service';
 import { ProfileService } from '../api/profile.service';
@@ -18,13 +19,17 @@ export class AccountPage implements OnInit {
   constructor(
 private auth:AuthenticationService,
 private profile:ProfileService,
-private loadingController:LoadingController
+private loadingController:LoadingController,
+private activatedRoute:ActivatedRoute
 
   ) {
 this.auth.getToken().then(val=>{
   this.userToken = val;
-  this.getProfileData();
+  // this.getProfileData();
 })
+activatedRoute.params.subscribe(val => {
+  this.getProfileData();
+});
 
    }
 

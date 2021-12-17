@@ -30,9 +30,10 @@ export class FolderPage  {
     private loadingController: LoadingController,
     private cartStorage: CartService
   ) {
+    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     activatedRoute.params.subscribe(val => {
       this.cartProductData();
-      this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+     
     });
     this.getAllProduct();
     // this.storage.create();

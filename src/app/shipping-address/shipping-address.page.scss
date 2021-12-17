@@ -1,0 +1,14 @@
+form {
+    padding: 20px 10px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+::ng-deep .item-inner {
+    border-color: none;
+}
+ion-item {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+

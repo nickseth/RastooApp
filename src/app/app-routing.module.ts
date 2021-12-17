@@ -109,6 +109,10 @@ const routes: Routes = [
   {
     path: 'oredr-view',
     loadChildren: () => import('./oredr-view/oredr-view.module').then( m => m.OredrViewPageModule)
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   }
 ];
 
