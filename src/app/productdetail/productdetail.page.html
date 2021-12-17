@@ -49,7 +49,7 @@
             for="">Price</label>£{{this.price_selected}}</strong>
       </div>
     </div>
-    <div class="upselling-pro-body">
+    <div class="upselling-pro-body" *ngIf="upselling_pro">
       <h4>You may also like…</h4>
       <div class="top-slider">
         <div *ngFor="let item33 of upselling_pro;">
@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    <div class="relative-pro-body">
+    <div class="relative-pro-body" *ngIf="related_pro">
       <h4>Related products</h4>
       <div class="top-slider">
         <div *ngFor="let item22 of related_pro;">

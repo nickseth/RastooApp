@@ -20,3 +20,8 @@ ion-content{
     color:red;
     font-weight: bold;
 }
+
+::ng-deep .item-inner {
+    border-color: none !important;
+}
+

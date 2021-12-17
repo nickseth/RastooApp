@@ -117,8 +117,8 @@ export class ProductdetailPage implements OnInit {
         this.productService.getOneProduct(element22 ).subscribe(async val3=>{
         this.upselling_pro.push(val3);
            await this.loading.dismiss();
-        },error=>{
-           this.loading.dismiss();
+        },async error=>{
+           await this.loading.dismiss();
         }
         );
         
