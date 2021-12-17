@@ -9,14 +9,14 @@ import { ProductsService } from '../api/products.service';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
-  allProductsData: any;
+  allProductsData: any =null;
   filterTerm: string;
   loading: any=false;
   
   constructor(
 private products:ProductsService,
 private route:Router,
-private loadingController:LoadingController
+// private loadingController:LoadingController
   ) {
     this.getAllProduct();
    }
@@ -32,14 +32,14 @@ private loadingController:LoadingController
     // await this.loading.present();
     
     let data = await this.products.getProductAll();
-   data.subscribe(val =>{
-
+   data.subscribe(async val =>{
+    // await this.loading.dismiss();
    this.allProductsData = val;
    console.log(this.allProductsData.length)
-   this.allProductsData.forEach(element => {
+   this.allProductsData.forEach(async element => {
      this.loading=true;
     //  console.log(element)
-    // this.loading.dismiss();
+    
    });
    
    })
@@ -50,6 +50,18 @@ private loadingController:LoadingController
    }
    doInfinite(e){
      console.log(e)
+
+   }
+
+   onChangeSearch(e){
+    this.loading=false;
+    //  console.log(e.target.value)
+     this.products.getSearch(e.target.value).subscribe(val=>{
+      //  console.log(val)
+      
+      this.allProductsData = val;
+      this.loading=true;
+     })
 
    }
 

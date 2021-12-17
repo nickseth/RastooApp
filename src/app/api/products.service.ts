@@ -9,7 +9,8 @@ export class ProductsService {
   // endpoint = 'http://localhost:3000/users';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',"Authorization":"Basic Y2tfNzIxYWViNjI5MmNjYmU4MjIzNTZiYWIwYmVlMGRlMDI2YTc4NzNkNDpjc180YWU0MzljMWM4NGQ0MDJmMDJkMzcxNmFiMDZhNGVjOTBhZDRiNTZl" })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    "Authorization":"Basic Y2tfNzIxYWViNjI5MmNjYmU4MjIzNTZiYWIwYmVlMGRlMDI2YTc4NzNkNDpjc180YWU0MzljMWM4NGQ0MDJmMDJkMzcxNmFiMDZhNGVjOTBhZDRiNTZl" })
   };
   // https://rastoo.com/wp-json/wc/v3/products?consumer_key=ck_a33dead7bbfc240066e04aa5adcb3e2ddd7f673e&consumer_secret=cs_03241e38f86a3014948af1e4fdb48347588b8c17
   baseUrl:any = "https://rastoo.com/";
@@ -19,23 +20,26 @@ export class ProductsService {
   constructor(public http: HttpClient) { }
 
   getCategory(){
-    return   this.http.get(`${this.baseUrl}wp-json/wc/v3/products/categories?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+    return   this.http.get(`${this.baseUrl}wp-json/wc/v3/products/categories`,this.httpOptions);
   }
   getProductAll(){
-    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?per_page=100&consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?per_page=100`,this.httpOptions);
   }
   getOneProduct(id){
-    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}`,this.httpOptions);
   }
 
   getCategoryOnes(id,data){
-    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?category=${id}&${data}&consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?category=${id}&${data}`,this.httpOptions);
   }
   getOneProductWithVarient(id,var_id){
-    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}/variations/${var_id}?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`);
+    // ?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}/variations/${var_id} `,this.httpOptions);
   }
 
- 
+  getSearch(data){
+    return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?search=${data}`,this.httpOptions);
+  }
  
 
 }

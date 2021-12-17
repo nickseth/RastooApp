@@ -2,7 +2,7 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 20px; 
 }
 
 .btn_cart{
@@ -42,9 +42,6 @@
   .plus-min-class{
       padding-left:10px;
   }
-}
-.pro_all_det{
-    margin-bottom: 50px;
 }
 ion-toolbar{
     --background: #2874f0;
@@ -100,4 +97,43 @@ ion-badge{
             padding-right: 15px;
         }
     }
+}
+
+.relative-pro-body{
+    padding-left: 20px;
+    margin-bottom: 50px;
+    .top-slider {
+        display: flex;
+        overflow-x: scroll;
+        background-color: #fff;
+        .pro_name{
+            font-size: 12px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .card2-body{
+            width:150px;
+            height: 200px;
+        }
+      }
+}
+.upselling-pro-body{
+    padding-left: 20px;
+  
+    .top-slider {
+        display: flex;
+        overflow-x: scroll;
+        background-color: #fff;
+        .pro_name{
+            font-size: 12px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .card2-body{
+            width:150px;
+            height: 200px;
+        }
+      }
 }

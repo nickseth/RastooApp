@@ -30,6 +30,13 @@ export class ProductdetailPage implements OnInit {
   badgeValue: any = 0;
   array_cart: any;
   price: any;
+  related_pro:any;
+  upselling_pro:any;
+  slideOptions = {
+    initialSlide: 1,
+    speed: 400,
+  };
+  img_urls_arr:any;
   constructor(
     private productService: ProductsService,
     private activatedRoute: ActivatedRoute,
@@ -72,10 +79,10 @@ export class ProductdetailPage implements OnInit {
       translucent: true,
     });
     await this.loading.present();
-    this.productService.getOneProduct(id).subscribe(val => {
+    this.productService.getOneProduct(id).subscribe(async val => {
       console.log(val)
-      this.product_res = val;
-      this.image_url = this.product_res.images[0].src;
+     this.product_res =  await val;
+      // this.image_url = this.product_res.images[0].src;
       this.pro_descrip = this.product_res.description;
       this.pro_name = this.product_res.name;
       this.pro_type = this.product_res.type;
@@ -95,7 +102,28 @@ export class ProductdetailPage implements OnInit {
 
         });
       }
-      this.loading.dismiss();
+      this.related_pro = [];
+      this.upselling_pro = [];
+      this.img_urls_arr = [];
+      this.product_res.related_ids.forEach(element22 => {
+        this.productService.getOneProduct(element22 ).subscribe( val2=>{
+        this.related_pro.push(val2);
+        });
+      });
+      this.product_res.images.forEach(ele_url => {
+        this.img_urls_arr.push(ele_url.src);
+      });
+      this.product_res.upsell_ids.forEach(element22 => {
+        this.productService.getOneProduct(element22 ).subscribe(async val3=>{
+        this.upselling_pro.push(val3);
+           await this.loading.dismiss();
+        },error=>{
+           this.loading.dismiss();
+        }
+        );
+        
+      });
+     
     })
   }
   async getDataWithVarient(id, varient_id) {
@@ -226,7 +254,9 @@ export class ProductdetailPage implements OnInit {
   updateCartBadge() {
     this.badgeValue = this.badgeValue + 1;
   }
-
+  openProducts(id) {
+    this.router.navigate(['productdetail', { id: id }]);
+  }
 
 }
 
