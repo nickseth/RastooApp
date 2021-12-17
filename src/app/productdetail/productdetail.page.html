@@ -56,7 +56,7 @@
           <ion-card (click)="openProducts(item33.id)" class="card2-body">
             <ion-card-content>
               <div class="product_img2" *ngIf="item33.images[0] !=null">
-                <img src={{item33.images[0].src}} />
+                <img style="height: 100%;" src={{item33.images[0].src}} />
               </div>
               <p class="pro_name">{{item33.name}}</p>
               <strong><small [innerHTML]="item33.price_html"></small></strong>
@@ -69,10 +69,11 @@
       <h4>Related products</h4>
       <div class="top-slider">
         <div *ngFor="let item22 of related_pro;">
+          
           <ion-card (click)="openProducts(item22.id)" class="card2-body">
             <ion-card-content>
               <div class="product_img2" *ngIf="item22.images[0] !=null">
-                <img src={{item22.images[0].src}} />
+                <img style="height: 100%;" src={{item22.images[0].src}} />
               </div>
               <p class="pro_name">{{item22.name}}</p>
               <strong><small [innerHTML]="item22.price_html"></small></strong>
