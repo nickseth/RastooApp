@@ -36,14 +36,11 @@ export class ProductsService {
     // ?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}`
     return this.http.get(`${this.baseUrl}wp-json/wc/v3/products/${id}/variations/${var_id} `,this.httpOptions);
   }
-<<<<<<< HEAD
-=======
 
   getSearch(data){
     return this.http.get(`${this.baseUrl}wp-json/wc/v3/products?search=${data}`,this.httpOptions);
   }
  
 
->>>>>>> f6793373e99899c7a094955b52e22af800f4375c
 }
 
