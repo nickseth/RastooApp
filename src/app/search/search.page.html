@@ -2,7 +2,7 @@
   <ion-toolbar>
     <!-- <ion-menu-button></ion-menu-button> -->
     <!-- <ion-title>Search Product</ion-title> -->
-    <ion-searchbar placeholder="Search..." (ionChange)="onChangeSearch($event)" animated="true"></ion-searchbar>
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" (ionChange)="onChangeSearch($event)" animated="true"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
     <!-- <ion-list-header>
       Products
     </ion-list-header> -->
-    <div *ngFor="let pro_item of allProductsData">
+    <div *ngFor="let pro_item of allProductsData | filter:filterTerm">
       <ion-item (click)="openProducts(pro_item.id)">
         <div class="product_img" *ngIf="pro_item.images[0] !=null">
         <ion-avatar slot="start">
