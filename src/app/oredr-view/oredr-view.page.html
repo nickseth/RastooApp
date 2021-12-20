@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-  <ion-item *ngFor="let item of this.itemImages" (click)="openProducts(item.id)">
+  <ion-item lines="none" *ngFor="let item of this.itemImages" (click)="openProducts(item.id)">
     <ion-thumbnail slot="start">
         <img width="80" height="80" src={{item.src}} />
     </ion-thumbnail>
@@ -20,7 +20,7 @@
   </ion-list>
    
     <ion-list>
-      <ion-item>
+      <ion-item lines="none">
       <div>
         <div class="item-disp-class">
           <h6>Order Date:  </h6>
@@ -43,7 +43,7 @@
       </ion-item>
     </ion-list>
       <ion-list>
-      <ion-item>
+      <ion-item lines="none">
         <div>
        <h4>Shipping Address</h4>
   
@@ -62,7 +62,7 @@
         </ion-item>
       </ion-list>
       <ion-list>
-        <ion-item>
+        <ion-item lines="none">
           <div>
          <h4>Billing Address</h4>
 
@@ -81,7 +81,7 @@
           </ion-item>
         </ion-list>
         <ion-list>
-          <ion-item>
+          <ion-item lines="none">
           <ion-label>Amount</ion-label>
           <p>{{this.OrderDetails.currency_symbol}}{{this.OrderDetails.total}}</p>
           </ion-item>

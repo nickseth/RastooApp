@@ -120,8 +120,13 @@ ion-avatar {
   font-weight: bold;
 }
 
-// .header-main {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
+// .product_img img {
+//   width: 100%;
+//   display: block;
 // }
+ion-card-content {
+  text-align: center
+}
+  ion-card {
+    padding: 20px 10px;
+}

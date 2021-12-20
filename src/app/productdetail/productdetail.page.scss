@@ -68,7 +68,7 @@ ion-badge{
 .product_img{
     max-width: 294px;
     max-height: 322px;
-    padding-left: 56px;
+    margin: 10px auto;
 }
 
 .pro_desc { 
@@ -100,8 +100,10 @@ ion-badge{
 }
 
 .relative-pro-body{
-    padding-left: 20px;
     margin-bottom: 50px;
+    h4 {
+        padding-left: 15px;
+    }
     .top-slider {
         display: flex;
         overflow-x: scroll;
@@ -141,4 +143,7 @@ ion-badge{
     text-align: center;
     height:130px;
     padding: 10px;
+}
+.card2-body {
+    text-align: center;
 }

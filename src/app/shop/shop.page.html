@@ -14,14 +14,14 @@
   
       <ion-card-content>
         <div class= "product_img" *ngIf="item.image != null else dummyImg ">
-          <ion-avatar>
+          <ion-avatar style="width: unset;height:unset">
             <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
             <img src={{item.image.src}} alt="">
       </ion-avatar>
         </div> 
         <ng-template #dummyImg>
           <div class= "product_img">
-            <ion-avatar>
+            <ion-avatar style="width: unset;height:unset">
               <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
               <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
             </ion-avatar>

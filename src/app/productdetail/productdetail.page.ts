@@ -82,7 +82,7 @@ export class ProductdetailPage implements OnInit {
     this.productService.getOneProduct(id).subscribe(async val => {
       console.log(val)
      this.product_res =  await val;
-      // this.image_url = this.product_res.images[0].src;
+      this.image_url = this.product_res.images[0].src;
       this.pro_descrip = this.product_res.description;
       this.pro_name = this.product_res.name;
       this.pro_type = this.product_res.type;
@@ -144,6 +144,7 @@ export class ProductdetailPage implements OnInit {
 
 
   async addProToCart() {
+   
     if (this.pro_type == "simple") {
       let data_pro_simple = { product_id: this.product_id, img_url: this.image_url, price: this.price, total_price: this.price, product_name: this.pro_name, quantity: 1 };
       this.finalAddToCart(data_pro_simple);

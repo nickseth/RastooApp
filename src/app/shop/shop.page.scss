@@ -5,7 +5,15 @@ ion-toolbar{
 
 ion-card-content{
     text-align: center;
-    .product_img{
-        margin-left: 24px;
-    }
+    // .product_img{
+    //     margin-left: 24px;
+    // }
   }
+  .product_img {
+    width: 100px;
+    margin: 10px auto;
+    img {
+        width: 100%;
+        display: block;
+    }
+}
