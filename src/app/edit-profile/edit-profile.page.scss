@@ -8,8 +8,6 @@
 .person-clss{
     height: 100px;
     width: 100px;
-    margin-top: -26px;
-    margin-left: 18px;
     background: #fff;
     border-radius: 50px;
     text-align: center;
@@ -30,34 +28,59 @@
 }
 ion-title{
     text-align: center;
-
+    padding-left: 80px;
+    font-size: 30px;
+    text-transform: capitalize;
 }
 .user-email-info{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    padding: 20px;
     ion-icon {
-        font-size: 25px;
+        font-size: 30px;
+        box-shadow: 0 0 11px rgb(33 33 33 / 20%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #2874F0;
       }
 }
 
-.col-static{
-    position:relative;
-  }
-  
-  .col-static .user {
-    position:absolute;
-    color:#2874f0;
-    top:50%;
-    left: -19px;
-    transform:translateY(-50%);
-    -webkit-transform:translateY(-50%);
-    -moz-transform:translateY(-50%);
-  }
-  form{
-    padding-left: 20px;
-  }
   ion-button{
     --border-radius: 50px;
+  }
+
+  form {
+    padding: 20px 10px;
+    box-shadow: 0px 2px 7px rgb(0 0 0 / 30%);
+    -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 7px rgb(0 0 0 / 30%);
+    position: absolute;
+    width: 85%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 25%;
+  }
+  .col-static {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .cta {
+    text-align: center;
+  }
+  ion-button {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  ion-input {
+    margin-left: 20px;
+  }
+  input {
+    width: 100%;
+  }
+  ion-back-button {
+    color: #fff;
   }

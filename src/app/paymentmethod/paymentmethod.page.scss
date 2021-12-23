@@ -1,19 +1,38 @@
-.price-details-class{
-    box-shadow: 0px 4px 13px 1px black;
-    margin: 29px 10px 24px 10px;;
-    padding: 20px;
-    // padding-left: 20px;
-    // padding-right: 20px;
-    padding: 20px;
-    .price-label1{
-          display: flex;
-          justify-content: space-between;
-          padding: 10px 10px 2px 1px;
-    }
-   
-}
-
 ion-toolbar{
     --background: #2874f0;
     --color:#fff;
+}
+.price-details-class{
+    border: 1px solid #ddd;
+    padding: 20px;
+    padding: 20px;
+    .price-label1{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px 2px 1px;
+        small {
+            font-size: 18px;
+        }
+    }
+}
+.pay-wrap {
+    padding: 0;
+    text-align: center;
+    ion-label {
+        font-size: 18px;
+        color: #000;
+        font-weight: 600;
+    }
+}
+
+.payment-method {
+    padding: 10px;
+    box-shadow: 0 0 11px rgb(33 33 33 / 20%);
+    margin: 10px;
+}
+::ng-deep .item-native {
+    padding-left: 0;
+}
+.price-label1 strong {
+    font-size: 20px;
 }

@@ -4,9 +4,9 @@ ion-toolbar{
 }
 ion-content{
     --background: #e8eaeb;
-    ion-list{
-        margin: 10px;
-    }
+    // ion-list{
+    //     margin: 10px;
+    // }
 }
 .item-disp-class{
     display: flex;
@@ -24,4 +24,14 @@ ion-content{
 ::ng-deep .item-inner {
     border-color: none !important;
 }
-
+.cancelled_clss p {
+    padding: 10px;
+    background-color: #fff;
+    line-height: 2;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+}
+::ng-deep ion-content ion-list {
+    padding: 10px;
+}

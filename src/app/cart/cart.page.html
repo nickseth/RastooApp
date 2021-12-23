@@ -16,7 +16,7 @@
       <div><a href="javascript:void(0)" (click)="clearCrtAll()">Remove All</a></div>
     </ion-header>
 
-    <ion-item *ngFor="let item of pro_data;">
+    <ion-item *ngFor="let item of pro_data;" lines="none">
 
       <ion-thumbnail slot="start">
         <img src={{item.img_url}}>
@@ -28,12 +28,14 @@
         <div>
 
           <div class="plus-min-class">
-            <strong><small>Qty: </small></strong>
-            <ion-icon name="remove-circle-outline" (click)="addQuantity('min',item.product_id)"></ion-icon>
-            <input type="number" value={{item.quantity}} style="width: 40px; margin-left:10px;margin-right:10px"
+            <div class="qty-wrap">
+            <strong class="qty"><small>Qty: </small></strong>
+            <ion-icon name="remove" (click)="addQuantity('min',item.product_id)"></ion-icon>
+            <input type="number" value={{item.quantity}} 
               readonly>
-            <ion-icon name="add-circle-outline" (click)="addQuantity('plus',item.product_id)"></ion-icon>
-            <a class="remove-btn-one" href="javascript:void(0)" (click)="removeOneItem(item.product_id)">Remove</a>
+            <ion-icon name="add" (click)="addQuantity('plus',item.product_id)"></ion-icon>
+          </div>
+            <a class="remove" href="javascript:void(0)" (click)="removeOneItem(item.product_id)">Remove</a>
           </div>
         </div>
       </ion-label>

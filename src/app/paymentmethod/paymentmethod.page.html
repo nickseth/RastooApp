@@ -6,6 +6,7 @@
     <ion-title>Payment</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="price-details-class">
     <ion-label>Order Summary</ion-label>
@@ -18,64 +19,48 @@
       <strong>£{{total_po_price }}</strong>
     </div>
   </div>
-
+  
   <ion-card>
-    <!-- <ion-item>
-      <ion-label>Payment Method</ion-label>
-    </ion-item>
-   -->
     <ion-card-content>
       <ion-radio-group value="grape" (ionChange)="radioGroupChange($event)" #radioGroup>
-        <ion-list-header>
+        <ion-list-header class="pay-wrap">
           <ion-label>Payment Method</ion-label>
         </ion-list-header>
-        <ion-item>
+        <ion-item lines="none">
           <ion-label>Cash on Delivery</ion-label>
           <ion-radio slot="start" color="primary" value="offline"></ion-radio>
         </ion-item>
-
-        <ion-item>
+        <ion-item lines="none">
           <ion-label>Online Payment</ion-label>
           <ion-radio slot="start" color="primary" value="online"></ion-radio>
         </ion-item>
-
       </ion-radio-group>
-\
-
     </ion-card-content>
   </ion-card>
-  <div>
+  <div class="payment-method">
     <ion-list [style.display]="displayModel">
-
+      
+      <ion-item >
+        <ion-label position="floating">Enter your 16 digit card number</ion-label>
+        <ion-input [(ngModel)]="cardNumber"></ion-input>
+      </ion-item> 
       <ion-item>
-        <ion-label color="primary" stacked>Card Number</ion-label>
-        <ion-input type="text" placeholder="Enter your 16 digit card number" 
-        [(ngModel)]="cardNumber"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="primary" stacked>Expiration Month</ion-label>
-        <ion-input type="number" placeholder="Enter your card expiration month"
+        <ion-label position="floating">Expiration Month</ion-label>
+        <ion-input type="number"
         [(ngModel)]="cardMonth"></ion-input>
       </ion-item>
-    
       <ion-item>
-        <ion-label color="primary" stacked>Expiration Year</ion-label>
-        <ion-input type="number" placeholder="Enter your card expiration year"
+        <ion-label position="floating">Expiration Year</ion-label>
+        <ion-input type="number"
         [(ngModel)]="cardYear"></ion-input>
       </ion-item>
-    
       <ion-item>
-        <ion-label color="primary" stacked>CVV</ion-label>
-        <ion-input type="number" placeholder="Enter your CVV"
+        <ion-label  position="floating">Enter CVV Number</ion-label>
+        <ion-input type="number"
         [(ngModel)]="cardCVV"></ion-input>
       </ion-item>
       <ion-button expand="block" size="large" color="success" (click)="payStripePayment()">£{{payed_btn }}</ion-button>
     </ion-list>
-    
-    
-     
-    
   </div>
 </ion-content>
 <ion-footer>

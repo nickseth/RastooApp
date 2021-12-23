@@ -4,19 +4,14 @@ ion-toolbar{
 }
 .btn-content-remove-all{
       display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    position: -webkit-sticky;
-    position: sticky;
-   top: 0;
-   background-color: #fff;
+      justify-content: space-between;
+      padding: 10px;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      background-color: #fff;
 }
-// .emptyCart{
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       height: 100%
-// }
+
 .continue-btn-div{
       display: flex;
       align-items: center;
@@ -24,43 +19,37 @@ ion-toolbar{
       padding-top: 10px;
 }
 .plus-min-class{
-margin-top: 5px;
-.remove-btn-one{
-      margin-left: 71px;
-}
+      margin-top: 5px;
+      .remove-btn-one{
+            margin-left: 71px;
+      }
 }
 .price-details-class{
-      box-shadow: 0px 4px 13px 1px black;
+      box-shadow: 0 0 11px rgba(33,33,33,.2);
       margin: 29px 10px 102px 10px;
       padding: 20px;
-      // padding-left: 20px;
-      // padding-right: 20px;
       padding: 20px;
       .price-label1{
             display: flex;
             justify-content: space-between;
             padding: 10px 10px 2px 1px;
       }
-     
+      
 }
-// .place-btn-class{
-     
-// }
+
 .footer{
       position: -webkit-sticky;
-       position: sticky;
-       position: fixed;
+      position: sticky;
+      position: fixed;
       bottom: 0;
       background:#fff; 
       display: flex;
       justify-content: space-between;
-      /* padding-left: 20px; */
-      /* padding-right: 20px; */
       margin-top: 20px;
-      // border: 1px solid black;
       padding: 20px;
       box-shadow: 2px 3px 9px 2px #adadad;
-    }
+      align-items: center;
+}
 
 
 .emptyCart{
@@ -80,4 +69,66 @@ margin-top: 5px;
       box-shadow: 0 4px 4px 0 rgb(0 0 0 / 15%);
       margin: 30px;
       border: 1px solid #ddd;
-  }
+}
+.btn-content-remove-all {
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      ion-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            text-transform: capitalize;
+      }
+      a {
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 600;
+      }
+}
+ion-item{
+      border-bottom: 1px solid #ccc;
+      ion-label p{
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 2;
+            letter-spacing: 1px;
+      }
+      .remove {
+            float: right;
+            text-decoration: none;
+            color: #212121;
+      }
+      .plus-min-class {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+      }
+      .qty-wrap {
+            display: flex;
+            align-items: center;
+            input {
+                  width: 80px;
+                  text-align: center;
+                  padding: 6px 20px;
+                  margin: 0 20px;
+            }
+      } 
+      strong.qty {
+            padding-right: 10px;       
+      }
+      ion-button {
+            text-transform: uppercase;
+          letter-spacing: 2px;
+          font-size: 14px;
+      }  
+}
+.price-label1 small,
+.qty small {
+      font-size: 16px;
+}
+

@@ -18,14 +18,14 @@
         <div class= "product_img" *ngIf="item.image != null else dummyImg ">
           <ion-avatar>
             <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
-            <img src={{item.image.src}} alt="">
+            <img src={{item.image.src}} alt="" width="80px" height="80px">
       </ion-avatar>
         </div> 
         <ng-template #dummyImg>
           <div class= "product_img">
             <ion-avatar>
               <!-- "https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" -->
-              <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="">
+              <img src="https://indiabookofrecords.in/wp-content/uploads/2021/02/ITC-Aashirvaad-Atta-.png" alt="" width="80px" height="80px">
             </ion-avatar>
           </div>
         </ng-template>

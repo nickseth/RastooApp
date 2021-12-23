@@ -1,10 +1,24 @@
 ion-card-content{
     text-align: center;
-    .product_img{
-        margin-left: 24px;
-    }
+    // .product_img{
+    //     margin-left: 24px;
+    // }
   }
   ion-toolbar{
     --background: #2874f0;
     --color:#fff;
+}ion-back-button {
+  color: #fff;
+}
+ion-card {
+  padding: 20px 10px;
+    text-align: center;
+}
+ion-avatar {
+  left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+ion-card-content {
+  padding: 0;
 }

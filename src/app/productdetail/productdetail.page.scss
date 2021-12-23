@@ -147,3 +147,51 @@ ion-badge{
 .card2-body {
     text-align: center;
 }
+
+ion-button {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+::ng-deep .toast-wrapper {
+    top: 268px;
+    height: 145px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 5px;
+    .toast-container {
+        flex-direction: column;
+        .toast-content {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+::ng-deep .my-custom-class{
+   --background:#e7dbdb;
+   --height: 100px;
+    // top: 268px;
+    // height: 145px;
+    // background: #fff !important;
+    // border: 1px solid #ddd;
+    // padding: 10px;
+    // margin: 30px;
+    // border-radius: 5px;
+    ::ng-deep .cart-btn{
+        --color:#fff;
+      }
+}
+
+::ng-deep .my-custom-class {
+    text-align: center;
+}
+::ng-deep .toast-container {
+    flex-direction: column;
+}
+::ng-deep .toast-container {
+    flex-direction: column !important;
+}

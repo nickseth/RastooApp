@@ -5,6 +5,7 @@ import { AuthenticationService } from '../api/authentication.service';
 import { CartService } from '../api/cart.service';
 import { ProductsService } from '../api/products.service';
 import { Storage } from '@ionic/storage-angular';
+import { reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-productdetail',
@@ -157,7 +158,7 @@ export class ProductdetailPage implements OnInit {
         const toast = await this.toastController.create({
           message: 'Please Select variation',
           position: 'middle',
-          duration: 2000
+          // duration: 2000
         });
         toast.present();
       }
@@ -176,7 +177,7 @@ export class ProductdetailPage implements OnInit {
           const toast = await this.toastController.create({
             message: 'Item already in Cart',
             position: 'middle',
-            duration: 2000
+            // duration: 2000
           });
           toast.present();
         } else {
@@ -184,20 +185,22 @@ export class ProductdetailPage implements OnInit {
             header: 'Hurrayy!',
             message: 'Added to Cart!',
             position: 'middle',
-            duration: 5000,
+            // duration: 5000,
             cssClass: 'my-custom-class',
             buttons: [
               {
-                side: 'end',
+                // side: 'start',
                 icon: 'cart',
                 text: 'View Cart',
+                cssClass: 'cart-btn',
                 handler: () => {
                   this.router.navigateByUrl('/tabs/cart');
                 }
               }, {
-                side: 'end',
+                // side: 'end',
                 text: 'Continue',
-                role: 'cancel',
+                role: 'cancel', 
+                cssClass: 'continue-btn',  
                 handler: () => {
                   this.router.navigateByUrl('/tabs/home');
                   // console.log('Close clicked');
@@ -219,20 +222,22 @@ export class ProductdetailPage implements OnInit {
           header: 'Hurrayy!',
           message: 'Added to Cart!',
           position: 'middle',
-          duration: 5000,
+          // duration: 5000,
           cssClass: 'my-custom-class',
           buttons: [
             {
-              side: 'end',
+              // side: 'start',
               icon: 'cart',
               text: 'View Cart',
+              cssClass: 'cart-btn',
               handler: () => {
                 this.router.navigateByUrl('/tabs/cart');
               }
             }, {
-              side: 'end',
+              // side: 'end',
               text: 'Continue',
               role: 'cancel',
+              cssClass: 'continue-btn',
               handler: () => {
                 this.router.navigateByUrl('/tabs/home');
               }
