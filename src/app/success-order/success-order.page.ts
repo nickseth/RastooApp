@@ -14,7 +14,7 @@ export class SuccessOrderPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
         this.OrderDetails = this.router.getCurrentNavigation().extras.state.Order_Success_place;
       
-   console.log(this.OrderDetails)
+  //  console.log(this.OrderDetails)
       }
     });
 
