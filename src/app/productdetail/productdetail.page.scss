@@ -171,20 +171,20 @@ ion-button {
     }
 }
 
-::ng-deep .my-custom-class{
-   --background:#e7dbdb;
-   --height: 100px;
-    // top: 268px;
-    // height: 145px;
-    // background: #fff !important;
-    // border: 1px solid #ddd;
-    // padding: 10px;
-    // margin: 30px;
-    // border-radius: 5px;
-    ::ng-deep .cart-btn{
-        --color:#fff;
-      }
-}
+// ::ng-deep .my-custom-class{
+//    --background:#e7dbdb;
+//    --height: 100px;
+//     // top: 268px;
+//     // height: 145px;
+//     // background: #fff !important;
+//     // border: 1px solid #ddd;
+//     // padding: 10px;
+//     // margin: 30px;
+//     // border-radius: 5px;
+//     ::ng-deep .cart-btn{
+//         --color:#fff;
+//       }
+// }
 
 ::ng-deep .my-custom-class {
     text-align: center;

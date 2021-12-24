@@ -4,6 +4,7 @@ import { AuthenticationService } from '../api/authentication.service';
 import { CartService } from '../api/cart.service';
 import { OrderService } from '../api/order.service';
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-paymentmethod',
   templateUrl: './paymentmethod.page.html',
@@ -23,13 +24,15 @@ export class PaymentmethodPage implements OnInit {
   displayModel:any = 'none';
   payed_btn:any;
   btn_pad_color:any = true;
+  loading: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private cartService:CartService,
     private orderService:OrderService,
     private authToken:AuthenticationService,
-    private stripe: Stripe
+    private stripe: Stripe,
+    private loadingController:LoadingController
   ) { 
 
     this.stripe.setPublishableKey('pk_test_51K51rFSIIqLP1uOsv712JHcY2oDs4YsdJeRSUuTvOdpmJQLgivTJovYTdl9zG4HExMGMjcV045W9yUfVVoX3ifyv00Pylkt7Ao');
@@ -103,6 +106,15 @@ export class PaymentmethodPage implements OnInit {
  async OrderPlaceSuccess(line_items){
   this.btn_pad_color = false;
   // this.order_local =  await this.orderService.getToOrderLoc();
+
+  this.loading = await this.loadingController.create({
+    cssClass: 'my-custom-class',
+    spinner: 'bubbles',
+    animated: true,
+    backdropDismiss: true,
+    translucent: true,
+  });
+  await this.loading.present();
 if(this.payment_method != null){
   // console.log(this.userToken)
   let data = {
@@ -114,7 +126,8 @@ if(this.payment_method != null){
     shipping:this.shipping_address,
     line_items:line_items
   }
-this.orderService.createOrder(data).subscribe(val=>{
+this.orderService.createOrder(data).subscribe(async val=>{
+  await this.loading.dismiss();
   console.log(val)
   this.cartService.clearCartStorage();
   let navigationExtras: NavigationExtras =  {
@@ -123,7 +136,8 @@ this.orderService.createOrder(data).subscribe(val=>{
          
         }
       }
-  this.router.navigate(['/success-order'],navigationExtras)
+  this.router.navigate(['/success-order'],navigationExtras);
+  
   // if(this.order_local == null){
   //   this.order_local = []
   // }

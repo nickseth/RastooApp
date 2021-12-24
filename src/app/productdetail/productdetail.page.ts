@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController,AlertController } from '@ionic/angular';
 import { AuthenticationService } from '../api/authentication.service';
 import { CartService } from '../api/cart.service';
 import { ProductsService } from '../api/products.service';
@@ -158,7 +158,7 @@ export class ProductdetailPage implements OnInit {
         const toast = await this.toastController.create({
           message: 'Please Select variation',
           position: 'middle',
-          // duration: 2000
+          duration: 2000
         });
         toast.present();
       }
@@ -171,13 +171,13 @@ export class ProductdetailPage implements OnInit {
       this.array_cart = data;
 
       if (data != null) {
-        let filggd = data.findIndex(itm => { return itm.id == this.product_id });
-
-        if (filggd > -1) {
+        let filggd = data.some(itm => { return itm.product_id == data_pro.product_id });
+    //  console.log(filggd);
+        if (filggd) {
           const toast = await this.toastController.create({
             message: 'Item already in Cart',
             position: 'middle',
-            // duration: 2000
+            duration: 2000
           });
           toast.present();
         } else {
@@ -185,7 +185,7 @@ export class ProductdetailPage implements OnInit {
             header: 'Hurrayy!',
             message: 'Added to Cart!',
             position: 'middle',
-            // duration: 5000,
+            duration: 5000,
             cssClass: 'my-custom-class',
             buttons: [
               {
@@ -222,7 +222,7 @@ export class ProductdetailPage implements OnInit {
           header: 'Hurrayy!',
           message: 'Added to Cart!',
           position: 'middle',
-          // duration: 5000,
+          duration: 5000,
           cssClass: 'my-custom-class',
           buttons: [
             {
