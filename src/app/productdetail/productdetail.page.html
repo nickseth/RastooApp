@@ -5,9 +5,9 @@
         <ion-title>{{pro_name}}
         </ion-title>
       </div>
-      <div style="font-size:20px">
+      <!-- <div style="font-size:20px">
         <ion-icon name="search"></ion-icon>
-      </div>
+      </div> -->
     </div>
     <ion-buttons slot="start" class="back-btn">
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>
@@ -44,7 +44,6 @@
         </ion-select>
       </div>
       <div class="main-price">
-
         <strong *ngIf="this.price_selected != null" class="woocommerce-Price-currencySymbol"> <label
             for="">Price</label>£{{this.price_selected}}</strong>
       </div>
