@@ -42,7 +42,10 @@ private route:Router,
     
    });
    
-   })
+   },async error=>{
+    await this.loading.dismiss();
+   alert(error.error.error)
+ })
    }
    
    openProducts(id){
@@ -56,12 +59,15 @@ private route:Router,
    onChangeSearch(e){
     this.loading=false;
     //  console.log(e.target.value)
-     this.products.getSearch(e.target.value).subscribe(val=>{
+     this.products.getSearch(e.target.value).subscribe(async val=>{
       //  console.log(val)
       
       this.allProductsData = val;
       this.loading=true;
-     })
+     },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
 
    }
 

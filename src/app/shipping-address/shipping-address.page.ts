@@ -63,7 +63,7 @@ export class ShippingAddressPage implements OnInit {
       translucent: true,
     });
     await this.loading.present();
-    this.userProfile.getUserProfile(id).subscribe(val => {
+    this.userProfile.getUserProfile(id).subscribe(async val => {
       this.userData = val;
       console.log(this.userData)
       this.first_name = this.userData.shipping.first_name;
@@ -84,9 +84,12 @@ export class ShippingAddressPage implements OnInit {
 
       this.shipp_country = this.userData.shipping.country;
 
-      this.loading.dismiss();
+      await this.loading.dismiss();
 
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
 
 
     this.userProfile.getCountries().subscribe(val=>{
@@ -97,7 +100,7 @@ export class ShippingAddressPage implements OnInit {
   ngOnInit() {
 
   }
-  getShippingDetails(){
+  async getShippingDetails(){
     
 
     // this.custom_model.dismiss(this.ionicForm.value);
@@ -106,14 +109,24 @@ export class ShippingAddressPage implements OnInit {
       shipping: this.ionicForm.value,
 
     }
-
-    this.userProfile.updateProfile(this.userToken, data).subscribe(val => {
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      spinner: 'bubbles',
+      animated: true,
+      backdropDismiss: true,
+      translucent: true,
+    });
+    await this.loading.present();
+    this.userProfile.updateProfile(this.userToken, data).subscribe(async val => {
       console.log(val)
       this.router.navigateByUrl("/checkout")
       // if (val['status'] == 'success') {
       //   this.presentToast(val['errormsg']);
       // }
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
     // console.log(this.ionicForm.value)
   }
 
@@ -126,11 +139,14 @@ export class ShippingAddressPage implements OnInit {
   // }
   compareWith(e) {
     console.log(e.target.value)
-    this.userProfile.getStates(e.target.value).subscribe(val=>{
+    this.userProfile.getStates(e.target.value).subscribe(async val=>{
      this.all_States = val['states'];
      console.log(this.all_States)
    
-    })
+    },async error=>{
+  
+     alert(error.error.error)
+   })
    }
 
 }

@@ -65,7 +65,10 @@ export class OredrViewPage implements OnInit {
  
  await this.loading.dismiss();
  this.router.navigateByUrl('/orders');
-    });
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   });
   }
 
 }

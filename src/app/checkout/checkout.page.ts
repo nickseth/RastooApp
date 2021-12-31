@@ -68,11 +68,14 @@ private loadingController:LoadingController
       translucent: true,
     });
     await this.loading.present();
-    this.userAddress.getUserProfile(userID).subscribe(val=>{
+    this.userAddress.getUserProfile(userID).subscribe(async val=>{
           this.UserAddress = val;
           this.address = this.UserAddress.billing.address_1
  this.loading.dismiss();
-    });
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   });
   }
   // async presentModal() {
   //   const modal = await this.custom_model.create({

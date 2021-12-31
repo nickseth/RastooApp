@@ -5,9 +5,9 @@
         <ion-title>{{pro_name}}
         </ion-title>
       </div>
-      <!-- <div style="font-size:20px">
-        <ion-icon name="search"></ion-icon>
-      </div> -->
+      <div style="font-size:20px">
+        <ion-icon name="search" [routerLink]="['/tabs/search']"></ion-icon>
+      </div>
     </div>
     <ion-buttons slot="start" class="back-btn">
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>

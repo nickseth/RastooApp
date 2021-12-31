@@ -55,7 +55,7 @@ export class EditProfilePage implements OnInit {
     });
     await this.loading.present();
     // let data = { token: this.userToken }
-    this.profile.getUserProfile(this.userToken).subscribe(val => {
+    this.profile.getUserProfile(this.userToken).subscribe(async val => {
       console.log(val)
       this.userData = val;
       this.first_name = val['first_name'];
@@ -70,8 +70,11 @@ export class EditProfilePage implements OnInit {
       // this.shipp_mob = this.userData.shipping.phone;
       // this.shipp_state = this.userData.shipping.state;
       // this.shipp_country = this.userData.shipping.country;
-      this.loading.dismiss();
-    })
+      await this.loading.dismiss();
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
   }
   async submitForm() {
 
@@ -92,7 +95,10 @@ export class EditProfilePage implements OnInit {
       await this.loading.dismiss();
       console.log(val)
       this.presentToast('Profile Successfully update');
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
   }
 
   presentToast(mss) {

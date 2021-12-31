@@ -120,19 +120,27 @@ export class ProductdetailPage implements OnInit {
            await this.loading.dismiss();
         },async error=>{
            await this.loading.dismiss();
+          alert(error.error.error)
         }
         );
         
       });
      
-    })
+    } ,async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   }
+    )
   }
   async getDataWithVarient(id, varient_id) {
 
     this.productService.getOneProductWithVarient(id, varient_id).subscribe(val => {
       this.price_selected = val['price'];
 
-    })
+    }, error=>{
+      
+     alert(error.error.error)
+   })
   }
   async getPrice(var_id) {
     if (var_id != 'null') {

@@ -66,7 +66,7 @@ async getAddressData(id){
     translucent: true,
   });
   await this.loading.present();
-  this.userProfile.getUserProfile(id).subscribe(val=>{
+  this.userProfile.getUserProfile(id).subscribe( async val=>{
     this.userData = val;
   console.log( this.userData)
       this.first_name = this.userData.billing.first_name;
@@ -87,14 +87,20 @@ async getAddressData(id){
 
     this.shipp_country = this.userData.billing.country;
 
-    this.loading.dismiss();
+   await this.loading.dismiss();
  
-  })
+  },async error=>{
+    await this.loading.dismiss();
+   alert(error.error.error)
+ })
 
   this.userProfile.getCountries().subscribe(val=>{
     this.all_countries = val;
    //  console.log(this.all_countries)
-   })
+   },async error=>{
+   
+   alert(error.error.error)
+ })
 }
   ngOnInit() {
 
@@ -118,7 +124,10 @@ async getAddressData(id){
       // if (val['status'] == 'success') {
       //   this.presentToast(val['errormsg']);
       // }
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
     // console.log(this.ionicForm.value)
   }
 
