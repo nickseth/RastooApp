@@ -25,16 +25,15 @@
     justify-content: space-between;
     padding: 0px 30px;
     span {
-        padding-right: 10px;
-    color: #000;
-    font-size: 14px;
-    font-weight: 600;
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
     }
     ion-select {
         padding: 6px;
-    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 15%);
-    border: 1px solid #ddd;
-    width: 100%;
+        box-shadow: 0 4px 4px 0 rgb(0 0 0 / 15%);
+        border: 1px solid #ddd;
+        width: 70%;
     }
 }
 .quntity-class{
@@ -62,7 +61,8 @@ ion-title{
 }
 ion-badge{
     border-radius: 50px;
-    right: 13px;
+    right: 6px;
+    top: -4px;
     position: absolute;
 }
 .product_img{
@@ -79,6 +79,7 @@ ion-badge{
     padding: 10px 30px;
     letter-spacing: 0.5px;
     margin-top: 0 ;
+    padding-top: 0;
 }
 
 ::ng-deep .pro_desc p {
@@ -143,6 +144,11 @@ ion-badge{
     text-align: center;
     height:130px;
     padding: 10px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 .card2-body {
     text-align: center;
@@ -171,20 +177,7 @@ ion-button {
     }
 }
 
-// ::ng-deep .my-custom-class{
-//    --background:#e7dbdb;
-//    --height: 100px;
-//     // top: 268px;
-//     // height: 145px;
-//     // background: #fff !important;
-//     // border: 1px solid #ddd;
-//     // padding: 10px;
-//     // margin: 30px;
-//     // border-radius: 5px;
-//     ::ng-deep .cart-btn{
-//         --color:#fff;
-//       }
-// }
+
 
 ::ng-deep .my-custom-class {
     text-align: center;
@@ -194,4 +187,7 @@ ion-button {
 }
 ::ng-deep .toast-container {
     flex-direction: column !important;
+}
+ion-back-button {
+  color: #fff;
 }
