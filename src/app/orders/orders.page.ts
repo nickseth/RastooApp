@@ -64,7 +64,10 @@ export class OrdersPage implements OnInit {
       //      });
       //  }
 
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
     return true;
 
   }

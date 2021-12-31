@@ -64,7 +64,10 @@ export class FolderPage  {
     await this.loading.present();
     this.products.getCategory().subscribe((res) => {
       this.categories = res;
-    });
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   });
     let data = await this.products.getProductAll();
     data.subscribe(val => {
       this.allProductsData = val;
@@ -74,7 +77,10 @@ export class FolderPage  {
         this.loading.dismiss();
       });
 
-    })
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   })
   }
   openProducts(id) {
     this.route.navigate(['productdetail', { id: id }]);

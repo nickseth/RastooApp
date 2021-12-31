@@ -31,11 +31,14 @@ private route:Router
       animated:true,
     });
     await this.loading.present();
-    this.products.getCategory().subscribe((res) => {
+    this.products.getCategory().subscribe(async (res) => {
       this.categories = res;
       console.log(res)
-      this.loading.dismiss();
-    });
+      await this.loading.dismiss();
+    },async error=>{
+      await this.loading.dismiss();
+     alert(error.error.error)
+   });
   }
   openCategory(id){
     this.route.navigate(['category', { id: id }]);

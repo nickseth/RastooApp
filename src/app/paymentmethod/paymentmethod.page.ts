@@ -53,8 +53,8 @@ export class PaymentmethodPage implements OnInit {
   getCartData() {
     this.line_items = [];
     this.total_po_price = 0;
-    this.cartService.getCartStorage().then(val => {
-      this.pro_data = val;
+    this.cartService.getCartStorage().then(async val => {
+      this.pro_data = await val;
       // console.log(this.pro_data)
       if (this.pro_data != null) {
         this.pro_length = this.pro_data.length;
@@ -113,7 +113,7 @@ export class PaymentmethodPage implements OnInit {
     animated: true,
     backdropDismiss: true,
     translucent: true,
-  });
+  } );
   await this.loading.present();
 if(this.payment_method != null){
   // console.log(this.userToken)
@@ -155,6 +155,9 @@ this.orderService.createOrder(data).subscribe(async val=>{
   // //  this.router.navigateByUrl("/success-order");
   // }
 
+},async error=>{
+  await this.loading.dismiss();
+ alert(error.error.error)
 })
 }
   }
