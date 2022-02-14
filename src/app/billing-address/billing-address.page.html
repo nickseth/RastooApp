@@ -1,16 +1,12 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header style="background-color: #434E84;">
+  <ion-toolbar >
    <ion-buttons slot="start" class="back-btn">
      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
    </ion-buttons>
    <ion-title>Add Your Address</ion-title>
   </ion-toolbar>
-  
-   <!-- </ion-navbar> -->
  </ion-header>
- 
  <ion-content padding>
-  
    <form [formGroup]="ionicForm" (ngSubmit)="getShippingDetails()">
      <ion-list>
        <ion-item  lines="none" class="newitem2">
@@ -29,10 +25,6 @@
          <ion-input placeholder="Email" type="email" [value]="shipp_email?shipp_email:''" formControlName="email"
            required></ion-input>
        </ion-item>
-       <!-- <ion-item class="newitem2">
-         <ion-input placeholder="Country" type="text" [value]="shipp_country?shipp_country:''" formControlName="country"
-           required></ion-input>
-       </ion-item> -->
        <ion-item   lines="none" class="newitem2">
         <ion-select placeholder="Select Country"  
           required  formControlName="country" (ionChange)="compareWith($event)">
@@ -45,15 +37,10 @@
           <ion-select-option *ngFor="let key of all_States" value="{{key.code}}">{{key.name}}</ion-select-option>
         </ion-select>
       </ion-item>
-       <!-- <ion-item class="newitem2">
-         <ion-input placeholder="State" type="text" [value]="shipp_state?shipp_state:''" formControlName="state"
-           required></ion-input>
-       </ion-item> -->
        <ion-item  lines="none" class="newitem2">
          <ion-input placeholder="city" type="text" [value]="shipp_city?shipp_city:''" formControlName="city"
            required></ion-input>
        </ion-item>
-     
        <ion-item  lines="none" class="newitem2">
          <ion-input placeholder="Pincode" type="text" [value]="shipp_code?shipp_code:''" formControlName="postcode"
            required></ion-input>
@@ -62,20 +49,10 @@
          <textarea placeholder="Address" [value]="shipp_address" formControlName="address_1"
            required></textarea>
        </ion-item>
-
-    
-     
-
        <div>
-         <ion-button type="submit" class="newbtn11" color="primary" block>Submit</ion-button>
+         <!-- <ion-button type="submit" class="newbtn11" color="primary" block>Submit</ion-button> -->
+         <button type="submit" class="newbtn11">Submit</button>
        </div>
      </ion-list>
    </form>
- 
-   
-       <!-- <ion-item class="newitem2">
-         <ion-select placeholder="Select City" [value]="userData.shipp_city" formControlName="shipp_city" required>
-           <ion-option *ngFor="let pcity of this.citiesdetails" value="{{pcity.city_id}}">{{pcity.city_name}}</ion-option>
-         </ion-select>
-       </ion-item> -->
  </ion-content>

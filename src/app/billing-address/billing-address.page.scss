@@ -25,3 +25,20 @@ form textarea {
     padding: 10px 0 0;
     line-height: 1;
 }
+
+::ng-deep ion-toolbar {
+    --background: #434E84 !important;
+    --color: #fff;
+}
+
+button {
+    background: #434E84;
+    color: #fff;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    font-family: 'Archivo';
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+}

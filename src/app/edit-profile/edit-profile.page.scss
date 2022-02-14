@@ -1,5 +1,5 @@
 .title-class{
-    background: #2874f0;
+    background: #434E84;
     color:#fff;
     height: 101px;
     position: relative;
@@ -14,13 +14,13 @@
     position: absolute;
    .userpro {
         margin-top: 30px;
-        color:#2874f0;
+        color:#434E84;
         position:relative;
     }
     .userproedit{
         margin-top: 35px;
         position: absolute;
-        color:#2874f0;
+        color:#434E84;
         margin-left: -20px;
         font-size: 26px;
      }
@@ -40,7 +40,7 @@ ion-title{
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    color: #2874F0;
+    color: #434E84;
       }
 }
 
@@ -84,3 +84,12 @@ ion-title{
   ion-back-button {
     color: #fff;
   }
+  button {
+  background-color: #434E84;
+  color: #fff;
+  padding: 10px 20px;
+  border: 5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  display: block;
+}

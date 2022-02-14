@@ -1,5 +1,5 @@
 ion-toolbar{
-    --background: #2874f0;
+    --background: #434E84;
     --color:#fff;
 }
 .main-body{
@@ -17,6 +17,7 @@ p, ul li {
     letter-spacing: 1px;
     line-height: 1.5;
     font-weight: 300;
+    font-family: "Archivo";
 }
 ul {
     text-decoration: none;
@@ -28,7 +29,21 @@ ul li {
 }
 h2 {
     margin: 0;
+    font-weight: 500;
+    font-family: "Archivo";
 }
 ion-button {
+    text-transform: uppercase;
+    --background-color: #434E84;
+}
+button {
+    background: #434E84;
+    color: #fff;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    font-family: 'Archivo';
+    font-weight: 500;
+    font-size: 16px;
     text-transform: uppercase;
 }

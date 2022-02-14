@@ -41,7 +41,8 @@
       </ion-label>
     </ion-item>
     <div class="continue-btn-div">
-      <ion-button fill="outline" [routerLink]="['/tabs/home']">Continue To Shopping</ion-button>
+      <!-- <ion-button  [routerLink]="['/tabs/home']">Continue To Shopping</ion-button> -->
+      <button [routerLink]="['/tabs/home']">Continue Shopping</button>
     </div>
     <div class="price-details-class">
       <ion-label>PRICE DETAILS</ion-label>
@@ -70,7 +71,8 @@
         <ion-icon name="cart"></ion-icon>
       </div>
       <h2>Your cart is empty</h2>
-      <ion-button  [routerLink]="['/tabs/home']" fill="outline">Continue Shopping</ion-button>
+      <!-- <ion-button  [routerLink]="['/tabs/home']">Continue Shopping</ion-button> -->
+      <button [routerLink]="['/tabs/home']">Continue Shopping</button>
     </div>
   </ng-template>
 </ion-content>

@@ -24,3 +24,33 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-Bold.ttf');
+}
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-ExtraBold.ttf');
+}
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-Light.ttf');
+}
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-Regular.ttf');
+}
+@font-face {
+    font-family: 'Archivo';
+    src: url('./assets/Font/Archivo-Medium.ttf');
+}

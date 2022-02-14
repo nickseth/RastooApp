@@ -1,5 +1,5 @@
 ion-toolbar{
-      --background: #2874f0;
+      --background: #434E84;
       --color:#fff;
 }
 .btn-content-remove-all{
@@ -132,3 +132,20 @@ ion-item{
       font-size: 16px;
 }
 
+ion-button {
+      --background-color: #434E84;
+}
+::ng-deep .button-native {
+      --background-color: #434E84;  
+}
+button {
+      background: #434E84;
+      color: #fff;
+      padding: 10px 20px;
+      display: block;
+      width: 100%;
+      font-family: 'Archivo';
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+  }

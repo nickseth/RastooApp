@@ -6,22 +6,18 @@
           <ion-menu-button></ion-menu-button>
           <ion-title><img src="../../assets/rstoo-logo-1.png" style="max-width: 80px;" /></ion-title>
         </div>
-
         <div class="header-right">
           <ion-icon class="notify-icon" name="notifications"></ion-icon>
           <div>
             <ion-icon class="crt-cart" name="cart" [routerLink]="['/tabs/cart']"></ion-icon>
             <ion-badge color="danger" *ngIf="badgeValue != null">{{badgeValue}}</ion-badge>
           </div>
-
         </div>
-
       </ion-buttons>
     </div>
     <div class="lower-header">
       <ion-searchbar [routerLink]="['/tabs/search']"></ion-searchbar>
     </div>
-
     <!-- <ion-title size="large">{{ folder }}</ion-title> -->
   </ion-toolbar>
 </ion-header>
@@ -82,6 +78,7 @@
           <ion-card-content>
             <p class="pro_name">{{pro_item.name}}</p>
             <strong><small [innerHTML]="pro_item.price_html"></small></strong>
+            <!-- <button>Select Option</button> -->
           </ion-card-content>
         </ion-card>
       </ion-col>

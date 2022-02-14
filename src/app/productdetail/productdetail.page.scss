@@ -6,7 +6,6 @@
 }
 
 .btn_cart{
-
     position: fixed;
     bottom: 0px;
     display: flex;
@@ -43,7 +42,7 @@
   }
 }
 ion-toolbar{
-    --background: #2874f0;
+    --background: #434E84;
     --color:#fff;
 }
 .header-main{
@@ -82,12 +81,7 @@ ion-badge{
     padding-top: 0;
 }
 
-::ng-deep .pro_desc p {
-    margin-bottom: 0;
-    margin-top: 0;
-    margin: 10px;
-    letter-spacing: 1px;
-}
+
 .main-price {
     margin-left: 20px;
     margin-top: 15px;
@@ -154,11 +148,17 @@ ion-badge{
     text-align: center;
 }
 
-ion-button {
+button {
+    background: #434E84;
+    width: 100%;
+    color: #fff;
+    margin: 4px 2px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-family: Archivo !important;
 }
 ::ng-deep .toast-wrapper {
     top: 268px;
@@ -190,4 +190,18 @@ ion-button {
 }
 ion-back-button {
   color: #fff;
+}
+
+
+::ng-deep button.button-native { 
+    background-color: #434E84 !important;
+    color: #fff; 
+}
+::ng-deep .pro_desc p {
+    margin: 10px;
+   --letter-spacing: 1px;
+    --font-family: "Archivo";
+    --font-size: 14px;
+    --font-weight: 400;
+    --text-align: justify;
 }

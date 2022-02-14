@@ -45,7 +45,7 @@ ion-menu-button {
 .upper-header{
   display: flex;
   justify-content: space-between;
-  background: #2874f0;
+  background: #434E84;
   padding-top: 10px;
   color:#fff;
 }
@@ -61,7 +61,7 @@ ion-menu-button {
 
 
 .lower-header{
-  background: #2874f0;
+  background: #434E84;
   padding-bottom: 10px;
   ion-searchbar{
     line-height:10px
@@ -112,6 +112,7 @@ ion-avatar {
 .tablinks small {
   font-size: 6px;
   font-weight: bold;
+  font-family: 'Archivo';
 }
 ion-card-content {
   text-align: center
@@ -119,4 +120,12 @@ ion-card-content {
   ion-card {
     padding: 20px 10px;
 }
-
+// button {
+//   background-color: #434E84;
+//   color: #fff;
+//   padding: 10px 20px;
+//   border: 5px;
+//   text-transform: uppercase;
+//   margin-top: 10px;
+//   display: block;
+// }
